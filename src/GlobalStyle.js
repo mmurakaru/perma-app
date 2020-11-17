@@ -6,7 +6,6 @@ export default createGlobalStyle`
 }
 
 body {
-
     font-size: 112.5%;
     margin: 0 auto;
     font-family: 'Roboto', sans-serif;
@@ -16,6 +15,7 @@ body {
     padding: 20px;
     background: whitesmoke;
     overflow: hidden;
+    color: #4a4a4a;
 }
 
 input, textarea, button, select {

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
-import ThumbnailWrapper from './components/ThumbnailWrapper'
 import PlantThumbnail from './components/PlantThumbnail'
 import getData from './services/getData'
 
@@ -34,4 +33,15 @@ export default App
 const AppStyled = styled.div`
     height: 100vh;
     overflow: hidden;
+`
+
+const ThumbnailWrapper = styled.div`
+    margin-top: 20px;
+    height: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: min-content;
+    place-items: center;
+    gap: 20px;
+    overflow: auto;
 `
