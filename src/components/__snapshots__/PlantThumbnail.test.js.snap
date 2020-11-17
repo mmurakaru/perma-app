@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlantThumbnail renders correctly 1`] = `
+<div
+  class="PlantThumbnail__Thumbnail-qnblyr-0 jtNltg"
+>
+  <img
+    alt=""
+    src="https://source.unsplash.com/random"
+  />
+  <h2>
+    Strawberyy
+  </h2>
+</div>
+`;
