@@ -17,12 +17,4 @@ body {
     overflow: hidden;
     color: #4a4a4a;
 }
-
-input, textarea, button, select {
-    font-size: 1em;
-}
-
-
-h1 {
-    color: #fff;
-}`
+`

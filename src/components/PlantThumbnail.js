@@ -11,10 +11,10 @@ export default function PlantThumbnail({ imgUrl, name }) {
 
 const Thumbnail = styled.div`
     img {
-        max-width: 146px;
+        height: 100px;
+        width: 146px;
         border-radius: 5px;
     }
-
     h2 {
         font-weight: 500;
         font-size: 0.8rem;
