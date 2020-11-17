@@ -5,7 +5,7 @@ describe('PlantThumbnail', () => {
     it('renders correctly', () => {
         const { container } = render(
             <PlantThumbnail
-                name="Strawberyy"
+                name="Strawberry"
                 imgUrl="https://source.unsplash.com/random"
             />
         )

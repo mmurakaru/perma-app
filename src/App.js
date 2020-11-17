@@ -8,7 +8,6 @@ function App() {
 
     useEffect(() => {
         getData().then((data) => {
-            console.log(data.data)
             setPlants(data.data)
         })
     }, [])
@@ -32,7 +31,6 @@ export default App
 
 const AppStyled = styled.div`
     height: 100vh;
-    overflow: hidden;
 `
 
 const ThumbnailWrapper = styled.div`

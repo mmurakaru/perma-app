@@ -9,7 +9,7 @@ export default function PlantThumbnail({ imgUrl, name }) {
     )
 }
 
-const Thumbnail = styled.div`
+const Thumbnail = styled.section`
     img {
         height: 100px;
         width: 146px;
