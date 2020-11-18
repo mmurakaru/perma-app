@@ -1,45 +1,15 @@
-import { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import PlantOverview from './components/PlantOverview'
 import SearchField from './components/SearchField'
-import getData from './services/getData'
+import usePlants from './hooks/usePlants'
 
 function App() {
-    const [plants, setPlants] = useState([])
-    const [filteredPlants, setFilteredPlants] = useState([])
-
-    useEffect(() => {
-        getData()
-            .then((data) => {
-                setPlants(data.data)
-            })
-            .catch((error) => console.log(error.message))
-    }, [])
-
-    function filterPlants(searchTerm) {
-        setFilteredPlants([
-            ...new Set([
-                ...plants.filter(({ common_name }) =>
-                    common_name
-                        .toLowerCase()
-                        .startsWith(searchTerm.toLowerCase())
-                ),
-                ...plants.filter(({ common_name }) =>
-                    common_name
-                        .toLowerCase()
-                        .includes(' ' + searchTerm.toLowerCase())
-                ),
-                ...plants.filter(({ common_name }) =>
-                    common_name.toLowerCase().includes(searchTerm.toLowerCase())
-                ),
-            ]),
-        ])
-    }
+    const { filterPlants, filteredPlants } = usePlants()
 
     return (
         <AppStyled>
             <SearchField filterPlants={filterPlants} />
-            <PlantOverview plants={plants} filteredPlants={filteredPlants} />
+            <PlantOverview filteredPlants={filteredPlants} />
         </AppStyled>
     )
 }
