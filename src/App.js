@@ -7,9 +7,11 @@ function App() {
     const [plants, setPlants] = useState([])
 
     useEffect(() => {
-        getData().then((data) => {
-            setPlants(data.data)
-        })
+        getData()
+            .then((data) => {
+                setPlants(data.data)
+            })
+            .catch((error) => console.log(error.message))
     }, [])
 
     return (
