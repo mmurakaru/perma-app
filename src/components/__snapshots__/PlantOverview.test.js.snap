@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Overview renders correctly 1`] = `
+<div
+  class="PlantOverview__ThumbnailWrapper-dqgz7b-1 dKNswe"
+/>
+`;

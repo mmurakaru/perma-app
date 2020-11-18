@@ -17,4 +17,10 @@ body {
     overflow: hidden;
     color: #4a4a4a;
 }
+
+h2 {
+        font-weight: 500;
+        font-size: 0.8rem;
+        margin: 0;
+    }
 `
