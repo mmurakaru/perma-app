@@ -3,12 +3,18 @@ import styled from 'styled-components/macro'
 export default function PlantOverview({ filteredPlants }) {
     return (
         <ThumbnailWrapper>
-            {filteredPlants?.map(({ id, common_name, image_url }) => (
-                <PlantThumbnail key={id}>
-                    <img src={image_url} alt="" />
-                    <h2>{common_name}</h2>
-                </PlantThumbnail>
-            ))}
+            {filteredPlants.length > 0 ? (
+                filteredPlants?.map(({ id, common_name, image_url }) => (
+                    <PlantThumbnail key={id}>
+                        <img src={image_url} alt="" />
+                        <h2>{common_name}</h2>
+                    </PlantThumbnail>
+                ))
+            ) : (
+                <ErrormsgStyled>
+                    Whoops! We couldn't find the plant you were looking for.
+                </ErrormsgStyled>
+            )}
         </ThumbnailWrapper>
     )
 }
@@ -31,4 +37,9 @@ const ThumbnailWrapper = styled.div`
     place-items: center;
     gap: 20px;
     overflow: auto;
+`
+
+const ErrormsgStyled = styled.h2`
+    position: absolute;
+    color: #aabb97;
 `
