@@ -1,0 +1,5 @@
+SearchField example:
+
+```js
+<SearchField />
+```

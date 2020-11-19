@@ -1,10 +1,10 @@
 import styled from 'styled-components/macro'
 
-export default function PlantOverview({ filteredPlants }) {
+export default function PlantOverview({ plants }) {
     return (
         <ThumbnailWrapper>
-            {filteredPlants.length > 0 ? (
-                filteredPlants?.map(({ id, common_name, image_url }) => (
+            {plants.length > 0 ? (
+                plants?.map(({ id, common_name, image_url }) => (
                     <PlantThumbnail key={id}>
                         <img src={image_url} alt="" />
                         <h2>{common_name}</h2>

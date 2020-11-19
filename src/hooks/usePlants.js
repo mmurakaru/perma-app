@@ -1,38 +1,54 @@
 import { useEffect, useState } from 'react'
-import getData from '../services/getData'
+import getPlants from '../services/getPlants'
+import searchPlants from '../services/searchPlants'
 
 export default function usePlants() {
     const [plants, setPlants] = useState([])
-    const [filteredPlants, setFilteredPlants] = useState([])
+    const [searchTerm, setSearchTerm] = useState('')
+    const filteredPlants = filterPlants(searchTerm)
 
     useEffect(() => {
-        getData()
+        filteredPlants.length === 0 &&
+            searchTerm.length > 0 &&
+            searchPlants(searchTerm).then((results) => {
+                setPlants([...plants, results])
+                console.log(plants)
+            })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [searchTerm])
+
+    useEffect(() => {
+        getPlants()
             .then((data) => {
-                setPlants(data.data)
-                setFilteredPlants(data.data)
+                setPlants([...plants, data.data])
             })
             .catch((error) => console.log(error.message))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    return { filterPlants, plants, filteredPlants }
+    return {
+        plants: filteredPlants,
+        searchTerm,
+        updateSearchTerm: setSearchTerm,
+    }
 
     function filterPlants(searchTerm) {
-        setFilteredPlants([
+        return [
             ...new Set([
-                ...plants.filter(({ common_name }) =>
+                ...plants.filter(({ common_name = '' }) =>
                     common_name
                         .toLowerCase()
                         .startsWith(searchTerm.toLowerCase())
                 ),
-                ...plants.filter(({ common_name }) =>
+                ...plants.filter(({ common_name = '' }) =>
                     common_name
                         .toLowerCase()
                         .includes(' ' + searchTerm.toLowerCase())
                 ),
-                ...plants.filter(({ common_name }) =>
+                ...plants.filter(({ common_name = '' }) =>
                     common_name.toLowerCase().includes(searchTerm.toLowerCase())
                 ),
             ]),
-        ])
+        ]
     }
 }

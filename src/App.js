@@ -4,12 +4,12 @@ import SearchField from './components/SearchField'
 import usePlants from './hooks/usePlants'
 
 function App() {
-    const { filterPlants, filteredPlants } = usePlants()
+    const { plants, searchTerm, updateSearchTerm } = usePlants()
 
     return (
         <AppStyled>
-            <SearchField filterPlants={filterPlants} />
-            <PlantOverview filteredPlants={filteredPlants} />
+            <SearchField searchTerm={searchTerm} onType={updateSearchTerm} />
+            <PlantOverview plants={plants} />
         </AppStyled>
     )
 }

@@ -1,25 +1,15 @@
-import { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 
-export default function SearchField({ filterPlants }) {
-    const [searchTerm, setSearchTerm] = useState('')
-
-    useEffect(() => {
-        filterPlants(searchTerm)
-    }, [searchTerm])
-
-    function handleChange(event) {
-        setSearchTerm(event.target.value)
-    }
+export default function SearchField({ searchTerm, onType }) {
     return (
         <SearchFieldWrapper>
-            <label htmlFor="searchInput">Search</label>
+            <label htmlFor="Search">Search</label>
             <input
-                id="searchInput"
+                id="Search"
                 placeholder="type in a scientific, common or synonym name"
                 type="text"
                 value={searchTerm}
-                onChange={handleChange}
+                onChange={(event) => onType(event.target.value)}
             />
         </SearchFieldWrapper>
     )
