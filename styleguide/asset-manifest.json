@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/build/main.ed36e1a9.js",
+    "runtime-main.js": "/build/bundle.153ee7bb.js",
+    "build/2.ab49ca1a.js": "/build/2.ab49ca1a.js",
+    "build/2.ab49ca1a.js.LICENSE.txt": "/build/2.ab49ca1a.js.LICENSE.txt",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "build/bundle.153ee7bb.js",
+    "build/2.ab49ca1a.js",
+    "build/main.ed36e1a9.js"
+  ]
+}
