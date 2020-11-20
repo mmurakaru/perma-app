@@ -1,0 +1,5 @@
+PageHeader example:
+
+```js
+<PageHeader />
+```
