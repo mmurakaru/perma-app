@@ -10,17 +10,18 @@ export default function usePlants() {
     useEffect(() => {
         filteredPlants.length === 0 &&
             searchTerm.length > 0 &&
-            searchPlants(searchTerm).then((results) => {
-                setPlants([...plants, results])
-                console.log(plants)
-            })
+            searchPlants(searchTerm)
+                .then((results) => {
+                    setPlants(results.data)
+                })
+                .catch((error) => console.log(error.message))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchTerm])
 
     useEffect(() => {
         getPlants()
             .then((data) => {
-                setPlants([...plants, data.data])
+                setPlants(data.data)
             })
             .catch((error) => console.log(error.message))
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -32,21 +33,25 @@ export default function usePlants() {
         updateSearchTerm: setSearchTerm,
     }
 
+    //PROBLEM: common_name null
+
     function filterPlants(searchTerm) {
         return [
             ...new Set([
-                ...plants.filter(({ common_name = '' }) =>
+                ...plants.filter(({ common_name }) => {
                     common_name
-                        .toLowerCase()
+                        ?.toLowerCase()
                         .startsWith(searchTerm.toLowerCase())
-                ),
-                ...plants.filter(({ common_name = '' }) =>
+                }),
+                ...plants.filter(({ common_name }) =>
                     common_name
-                        .toLowerCase()
+                        ?.toLowerCase()
                         .includes(' ' + searchTerm.toLowerCase())
                 ),
-                ...plants.filter(({ common_name = '' }) =>
-                    common_name.toLowerCase().includes(searchTerm.toLowerCase())
+                ...plants.filter(({ common_name }) =>
+                    common_name
+                        ?.toLowerCase()
+                        .includes(searchTerm.toLowerCase())
                 ),
             ]),
         ]

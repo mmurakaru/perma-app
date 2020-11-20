@@ -2,7 +2,7 @@ PlantOverview example:
 
 ```js
 <PlantOverview
-    filteredPlants={[
+    plants={[
         {
             id: 1,
             common_name: 'Coconut palm',
