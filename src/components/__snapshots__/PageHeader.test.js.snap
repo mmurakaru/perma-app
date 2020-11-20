@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageHeader renders correctly 1`] = `
+<div
+  class="PageHeader__HeaderWrapper-sc-25gwsu-0 iRERYq"
+>
+  <h1>
+    Overview
+  </h1>
+</div>
+`;
