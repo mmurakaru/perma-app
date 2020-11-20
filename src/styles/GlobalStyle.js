@@ -22,6 +22,11 @@ body {
     overflow: hidden;
     color: #4a4a4a;
 }
+h1 {
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0;
+}
 
 h2 {
         font-weight: 500;
