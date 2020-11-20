@@ -33,16 +33,14 @@ export default function usePlants() {
         updateSearchTerm: setSearchTerm,
     }
 
-    //PROBLEM: common_name null
-
     function filterPlants(searchTerm) {
         return [
             ...new Set([
-                ...plants.filter(({ common_name }) => {
+                ...plants.filter(({ common_name }) =>
                     common_name
                         ?.toLowerCase()
                         .startsWith(searchTerm.toLowerCase())
-                }),
+                ),
                 ...plants.filter(({ common_name }) =>
                     common_name
                         ?.toLowerCase()

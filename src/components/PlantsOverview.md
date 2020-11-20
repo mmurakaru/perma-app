@@ -1,7 +1,7 @@
-PlantOverview example:
+PlantsOverview example:
 
 ```js
-<PlantOverview
+<PlantsOverview
     plants={[
         {
             id: 1,

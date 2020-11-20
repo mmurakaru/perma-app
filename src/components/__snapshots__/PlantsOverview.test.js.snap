@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Overview renders correctly 1`] = `
+<div
+  class="PlantsOverview__ThumbnailWrapper-eai3pl-1 LkdTC"
+>
+  <section
+    class="PlantsOverview__PlantThumbnail-eai3pl-0 iLHrai"
+  >
+    <img
+      alt=""
+      src="https://source.unsplash.com/random/life"
+    />
+    <h2>
+      Coconut palm
+    </h2>
+  </section>
+  <section
+    class="PlantsOverview__PlantThumbnail-eai3pl-0 iLHrai"
+  >
+    <img
+      alt=""
+      src="https://source.unsplash.com/random/plant"
+    />
+    <h2>
+      Strawberry
+    </h2>
+  </section>
+</div>
+`;

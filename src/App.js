@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-import PlantOverview from './components/PlantOverview'
+import PlantsOverview from './components/PlantsOverview'
 import SearchField from './components/SearchField'
 import usePlants from './hooks/usePlants'
 
@@ -9,7 +9,7 @@ function App() {
     return (
         <AppStyled>
             <SearchField searchTerm={searchTerm} onType={updateSearchTerm} />
-            <PlantOverview plants={plants} />
+            <PlantsOverview plants={plants} />
         </AppStyled>
     )
 }

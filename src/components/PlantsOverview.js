@@ -1,6 +1,11 @@
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
 
-export default function PlantOverview({ plants }) {
+PlantsOverview.propTypes = {
+    plants: PropTypes.array,
+}
+
+export default function PlantsOverview({ plants }) {
     return (
         <ThumbnailWrapper>
             {plants.length > 0 ? (
