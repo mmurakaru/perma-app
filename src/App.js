@@ -2,16 +2,38 @@ import styled from 'styled-components/macro'
 import PageHeader from './components/PageHeader'
 import PlantsOverview from './components/PlantsOverview'
 import SearchField from './components/SearchField'
+import PlantFields from './components/PlantFields'
 import usePlants from './hooks/usePlants'
+import { Switch, Route } from 'react-router-dom'
+import { useState } from 'react'
 
 function App() {
     const { plants, searchTerm, updateSearchTerm } = usePlants()
 
+    const [plant, setPlant] = useState({})
+
+    function showPlantDetails(id) {
+        setPlant(plants.find((plant) => plant.id === id))
+    }
+
     return (
         <AppStyled>
-            <PageHeader />
-            <SearchField searchTerm={searchTerm} onType={updateSearchTerm} />
-            <PlantsOverview plants={plants} />
+            <Switch>
+                <Route path="/plant">
+                    <PlantFields plant={plant} />
+                </Route>
+                <Route path="/" exact>
+                    <PageHeader />
+                    <SearchField
+                        searchTerm={searchTerm}
+                        onType={updateSearchTerm}
+                    />
+                    <PlantsOverview
+                        plants={plants}
+                        handleClick={showPlantDetails}
+                    />
+                </Route>
+            </Switch>
         </AppStyled>
     )
 }

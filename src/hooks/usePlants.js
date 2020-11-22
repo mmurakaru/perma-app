@@ -36,17 +36,17 @@ export default function usePlants() {
     function filterPlants(searchTerm) {
         return [
             ...new Set([
-                ...plants.filter(({ common_name }) =>
+                ...plants?.filter(({ common_name }) =>
                     common_name
                         ?.toLowerCase()
                         .startsWith(searchTerm.toLowerCase())
                 ),
-                ...plants.filter(({ common_name }) =>
+                ...plants?.filter(({ common_name }) =>
                     common_name
                         ?.toLowerCase()
                         .includes(' ' + searchTerm.toLowerCase())
                 ),
-                ...plants.filter(({ common_name }) =>
+                ...plants?.filter(({ common_name }) =>
                     common_name
                         ?.toLowerCase()
                         .includes(searchTerm.toLowerCase())

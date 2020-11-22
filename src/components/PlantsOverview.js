@@ -1,19 +1,25 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 PlantsOverview.propTypes = {
     plants: PropTypes.array,
 }
 
-export default function PlantsOverview({ plants }) {
+export default function PlantsOverview({ plants, handleClick }) {
     return (
         <ThumbnailWrapper>
             {plants.length > 0 ? (
                 plants?.map(({ id, common_name, image_url }) => (
-                    <PlantThumbnail key={id}>
-                        <img src={image_url} alt="" />
-                        <h2>{common_name}</h2>
-                    </PlantThumbnail>
+                    <Link to="/plant" className="link">
+                        <PlantThumbnail
+                            onClick={() => handleClick(id)}
+                            key={id}
+                        >
+                            <img src={image_url} alt="" />
+                            <h2>{common_name}</h2>
+                        </PlantThumbnail>
+                    </Link>
                 ))
             ) : (
                 <ErrormsgStyled>
@@ -42,6 +48,11 @@ const ThumbnailWrapper = styled.div`
     place-items: center;
     gap: 20px;
     overflow: auto;
+
+    .link {
+        color: #4a4a4a;
+        text-decoration: none;
+    }
 `
 
 const ErrormsgStyled = styled.h2`
