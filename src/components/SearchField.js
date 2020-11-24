@@ -6,7 +6,7 @@ export default function SearchField({ searchTerm, onType }) {
             <label htmlFor="Search">Search</label>
             <input
                 id="Search"
-                placeholder="type in a scientific, common or synonym name"
+                placeholder="Common plant name"
                 type="text"
                 value={searchTerm}
                 onChange={(event) => onType(event.target.value)}
@@ -19,13 +19,14 @@ const SearchFieldWrapper = styled.div`
     position: relative;
 
     label {
-        font-weight: 500;
-        font-size: 0.8rem;
+        font-weight: 400;
+        font-size: 0.6rem;
+        opacity: 50%;
     }
 
     input {
         margin-top: 5px;
-        border: 1px solid #4a4a4a;
+        border: 1px solid #d6d6d6;
         border-radius: 5px;
         width: 100%;
         height: 40px;
@@ -33,8 +34,12 @@ const SearchFieldWrapper = styled.div`
         background: whitesmoke;
     }
 
+    input:focus {
+        outline: none;
+        border-color: #aabb97;
+    }
+
     input::placeholder {
         color: #4a4a4a;
-        opacity: 1;
     }
 `

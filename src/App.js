@@ -5,22 +5,22 @@ import SearchField from './components/SearchField'
 import PlantFields from './components/PlantFields'
 import usePlants from './hooks/usePlants'
 import { Switch, Route } from 'react-router-dom'
-import { useState } from 'react'
 
 function App() {
-    const { plants, searchTerm, updateSearchTerm } = usePlants()
-
-    const [plant, setPlant] = useState({})
-
-    function showPlantDetails(id) {
-        setPlant(plants.find((plant) => plant.id === id))
-    }
+    const {
+        plants,
+        searchTerm,
+        updateSearchTerm,
+        showPlantDetails,
+        plant,
+        isLoaded,
+    } = usePlants()
 
     return (
         <AppStyled>
             <Switch>
                 <Route path="/plant">
-                    <PlantFields plant={plant} />
+                    <PlantFields plant={plant} isLoaded={isLoaded} />
                 </Route>
                 <Route path="/" exact>
                     <PageHeader />

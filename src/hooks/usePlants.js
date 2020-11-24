@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
 import getPlants from '../services/getPlants'
 import searchPlants from '../services/searchPlants'
+import getFields from '../services/getFields'
 
 export default function usePlants() {
     const [plants, setPlants] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
+    const [plant, setPlant] = useState({})
+    const [isLoaded, setIsLoaded] = useState(false)
     const filteredPlants = filterPlants(searchTerm)
 
     useEffect(() => {
@@ -31,6 +34,9 @@ export default function usePlants() {
         plants: filteredPlants,
         searchTerm,
         updateSearchTerm: setSearchTerm,
+        showPlantDetails,
+        plant,
+        isLoaded,
     }
 
     function filterPlants(searchTerm) {
@@ -53,5 +59,16 @@ export default function usePlants() {
                 ),
             ]),
         ]
+    }
+
+    function showPlantDetails(id) {
+        setIsLoaded(false)
+        setPlant(plants.find((plant) => plant.id === id))
+        getFields(id)
+            .then((results) => {
+                setPlant(results.data)
+                setIsLoaded(true)
+            })
+            .catch((error) => console.log(error.message))
     }
 }

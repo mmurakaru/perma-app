@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import logo from '../assets/perma_logo.svg'
 import { Link } from 'react-router-dom'
 
 PlantsOverview.propTypes = {
@@ -7,6 +8,7 @@ PlantsOverview.propTypes = {
 }
 
 export default function PlantsOverview({ plants, handleClick }) {
+    document.body.style.backgroundColor = '#F5F5F5'
     return (
         <ThumbnailWrapper>
             {plants.length > 0 ? (
@@ -22,9 +24,9 @@ export default function PlantsOverview({ plants, handleClick }) {
                     </Link>
                 ))
             ) : (
-                <ErrormsgStyled>
+                <ErrorMsgStyled>
                     Whoops! We couldn't find the plant you were looking for.
-                </ErrormsgStyled>
+                </ErrorMsgStyled>
             )}
         </ThumbnailWrapper>
     )
@@ -36,6 +38,9 @@ const PlantThumbnail = styled.section`
         width: 156px;
         object-fit: cover;
         border-radius: 5px;
+        background: #4a4a4a;
+        background-image: url(${logo});
+        background-repeat: no-repeat;
     }
 `
 
@@ -55,7 +60,7 @@ const ThumbnailWrapper = styled.div`
     }
 `
 
-const ErrormsgStyled = styled.h2`
+const ErrorMsgStyled = styled.h2`
     position: absolute;
     color: #aabb97;
 `

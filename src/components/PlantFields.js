@@ -1,39 +1,59 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import logo from '../assets/perma_logo.svg'
+import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
+import { Link } from 'react-router-dom'
 
 PlantFields.propTypes = {
     plants: PropTypes.array,
 }
 
-export default function PlantFields({ plant }) {
+export default function PlantFields({ plant, isLoaded }) {
     document.body.style.backgroundColor = '#AABB97'
     return (
         <PlantFieldsContainer>
-            {console.log(plant)}
-            <PlantThumbnail key={plant.id}>
-                <img src={plant.image_url} alt="" />
-                <h2>{plant.common_name}</h2>
-            </PlantThumbnail>
-            <FieldsStyled>
-                <Field>Family</Field>
-                <Data>{plant.family}</Data>
-                <Field>Zone</Field>
-                <Data>{(plant.native = '-')}</Data>
-                <Field>Maximum-height</Field>
-                <Data>{(plant.maximum_height = '-')}</Data>
-                <Field>Minimum-temperature</Field>
-                <Data>{(plant.minimum_temperature = '-')}</Data>
-                <Field>Soil texture</Field>
-                <Data>{(plant.soil_texture = '-')}</Data>
-                <Field>Edible</Field>
-                <Data>{(plant.edible = true ? 'Yes' : 'No')}</Data>
-                <Field>Growth months</Field>
-                <Data>{(plant.growth_months = '-')}</Data>
-                <Field>Days to harvest</Field>
-                <Data>{(plant.days_to_harvest = '-')}</Data>
-                <Text>{plant.description}</Text>
-            </FieldsStyled>
+            <Link to="/">
+                <ArrowDown />
+            </Link>
+            {isLoaded ? (
+                <>
+                    <PlantThumbnail key={plant.id}>
+                        <img src={plant.image_url} alt="" />
+                        <h2>{plant.common_name}</h2>
+                    </PlantThumbnail>
+                    <FieldsWrapper>
+                        <FieldsStyled>
+                            <Field>Family</Field>
+                            <Data>{plant.family}</Data>
+                            <Field>Average-height (cm)</Field>
+                            <Data>
+                                {plant.specifications.average_height.cm}
+                            </Data>
+                            <Field>Minimum-temperature (deg-c)</Field>
+                            <Data>
+                                {plant.growth.minimum_temperature.deg_c}
+                            </Data>
+                            <Field>
+                                Soil texture <br /> (0)clay) - (10)rock
+                            </Field>
+                            <Data>{plant.growth.soil_texture}</Data>
+                            <Field>Edible</Field>
+                            <Data>{plant.edible === true ? 'yes' : 'no'}</Data>
+                            <Field>Light (1-10)</Field>
+                            <Data>{plant.growth.light}</Data>
+                            <Field>Sowing</Field>
+                            <Data>{plant.growth.sowing}</Data>
+                            <Field>Row spacing</Field>
+                            <Data>{plant.growth.row_spacing.cm}</Data>
+                            <Field>Days to harvest</Field>
+                            <Data>{plant.growth.days_to_harvest}</Data>
+                        </FieldsStyled>
+                        <Text>{plant.growth.description}</Text>
+                    </FieldsWrapper>
+                </>
+            ) : (
+                <LoadingMsgStyled />
+            )}
         </PlantFieldsContainer>
     )
 }
@@ -47,6 +67,13 @@ const PlantFieldsContainer = styled.section`
     overflow: none;
     margin-top: 70px;
 `
+const ArrowDown = styled(ArrowIcon)`
+    fill: #f5f5f5;
+    width: 20px;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+`
 
 const PlantThumbnail = styled.section`
     display: flex;
@@ -55,13 +82,21 @@ const PlantThumbnail = styled.section`
     margin-bottom: 20px;
 
     img {
-        background-image: url(${logo});
         height: 100px;
         width: 156px;
         object-fit: cover;
         border-radius: 5px;
         margin-bottom: 5px;
+        background: #4a4a4a;
+        background-image: url(${logo});
+        background-repeat: no-repeat;
     }
+`
+
+const FieldsWrapper = styled.div`
+    max-height: 600px;
+    overflow-y: auto;
+    border-top: 0.5px solid #e8e8e8;
 `
 
 const FieldsStyled = styled.div`
@@ -90,9 +125,25 @@ const Data = styled.span`
 const Text = styled.p`
     font-weight: 400;
     color: #4a4a4a;
-    opacity: 50%;
     line-height: 1.333;
     font-size: 75%;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 10px;
+`
+const LoadingMsgStyled = styled.img`
+    width: 40px;
+    height: 40px;
+    background-color: #aabb97;
+    border-radius: 100%;
+    animation: scaleout 1s infinite ease-in-out;
+
+    @keyframes scaleout {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 0;
+        }
+    }
 `
