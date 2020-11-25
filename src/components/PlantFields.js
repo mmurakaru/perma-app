@@ -2,19 +2,16 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import logo from '../assets/perma_logo.svg'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
-import { Link } from 'react-router-dom'
 
 PlantFields.propTypes = {
     plants: PropTypes.array,
 }
 
-export default function PlantFields({ plant, isLoaded }) {
+export default function PlantFields({ plant, isLoaded, backToHome }) {
     document.body.style.backgroundColor = '#AABB97'
     return (
         <PlantFieldsContainer>
-            <Link to="/">
-                <ArrowDown />
-            </Link>
+            <ArrowDown onClick={backToHome} />
             {isLoaded ? (
                 <>
                     <PlantThumbnail key={plant.id}>

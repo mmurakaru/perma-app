@@ -5,6 +5,7 @@ import SearchField from './components/SearchField'
 import PlantFields from './components/PlantFields'
 import usePlants from './hooks/usePlants'
 import { Switch, Route } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 
 function App() {
     const {
@@ -16,13 +17,16 @@ function App() {
         isLoaded,
     } = usePlants()
 
+    const history = createBrowserHistory()
+
+    function updateUrl() {
+        history.push('/')
+    }
+
     return (
         <AppStyled>
             <Switch>
-                <Route path="/plant">
-                    <PlantFields plant={plant} isLoaded={isLoaded} />
-                </Route>
-                <Route path="/" exact>
+                <Route exact path="/">
                     <PageHeader />
                     <SearchField
                         searchTerm={searchTerm}
@@ -31,6 +35,13 @@ function App() {
                     <PlantsOverview
                         plants={plants}
                         handleClick={showPlantDetails}
+                    />
+                </Route>
+                <Route path="/plant">
+                    <PlantFields
+                        plant={plant}
+                        isLoaded={isLoaded}
+                        backToHome={updateUrl}
                     />
                 </Route>
             </Switch>

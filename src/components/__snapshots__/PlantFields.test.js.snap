@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlantFields renders correctly 1`] = `
+<section
+  class="PlantFields__PlantFieldsContainer-sc-1k0boib-0 fgqhTN"
+>
+  <svg
+    class="PlantFields__ArrowDown-sc-1k0boib-1 dxMbqc"
+  >
+    arrow_down.svg
+  </svg>
+  <section
+    class="PlantFields__PlantThumbnail-sc-1k0boib-2 jzBwIx"
+  >
+    <img
+      alt=""
+      src="https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed"
+    />
+    <h2>
+      European mountain ash
+    </h2>
+  </section>
+  <div
+    class="PlantFields__FieldsWrapper-sc-1k0boib-3 cizPgz"
+  >
+    <div
+      class="PlantFields__FieldsStyled-sc-1k0boib-4 iIaXYk"
+    >
+      <span
+        class="PlantFields__Field-sc-1k0boib-5 bANarV"
+      >
+        Family
+      </span>
+      <span
+        class="PlantFields__Data-sc-1k0boib-6 bcuzNU"
+      >
+        Rosaceae
+      </span>
+      <span
+        class="PlantFields__Field-sc-1k0boib-5 bANarV"
+      >
+        Average-height (cm)
+      </span>
+      <span
+        class="PlantFields__Data-sc-1k0boib-6 bcuzNU"
+      >
+        300
+      </span>
+      <span
+        class="PlantFields__Field-sc-1k0boib-5 bANarV"
+      >
+        Minimum-temperature (deg-c)
+      </span>
+      <span
+        class="PlantFields__Data-sc-1k0boib-6 bcuzNU"
+      >
+        -36
+      </span>
+      <span
+        class="PlantFields__Field-sc-1k0boib-5 bANarV"
+      >
+        Soil texture 
+        <br />
+         (0)clay) - (10)rock
+      </span>
+      <span
+        class="PlantFields__Data-sc-1k0boib-6 bcuzNU"
+      >
+        4
+      </span>
+      <span
+        class="PlantFields__Field-sc-1k0boib-5 bANarV"
+      >
+        Edible
+      </span>
+      <span
+        class="PlantFields__Data-sc-1k0boib-6 bcuzNU"
+      >
+        no
+      </span>
+      <span
+        class="PlantFields__Field-sc-1k0boib-5 bANarV"
+      >
+        Light (1-10)
+      </span>
+      <span
+        class="PlantFields__Data-sc-1k0boib-6 bcuzNU"
+      >
+        7
+      </span>
+      <span
+        class="PlantFields__Field-sc-1k0boib-5 bANarV"
+      >
+        Sowing
+      </span>
+      <span
+        class="PlantFields__Data-sc-1k0boib-6 bcuzNU"
+      >
+        Lorem ipsum
+      </span>
+      <span
+        class="PlantFields__Field-sc-1k0boib-5 bANarV"
+      >
+        Row spacing
+      </span>
+      <span
+        class="PlantFields__Data-sc-1k0boib-6 bcuzNU"
+      >
+        30
+      </span>
+      <span
+        class="PlantFields__Field-sc-1k0boib-5 bANarV"
+      >
+        Days to harvest
+      </span>
+      <span
+        class="PlantFields__Data-sc-1k0boib-6 bcuzNU"
+      >
+        60
+      </span>
+    </div>
+    <p
+      class="PlantFields__Text-sc-1k0boib-7 eTsewk"
+    >
+      Lorem ipsum
+    </p>
+  </div>
+</section>
+`;
