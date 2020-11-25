@@ -26,20 +26,20 @@ const SearchFieldWrapper = styled.div`
 
     input {
         margin-top: 5px;
-        border: 1px solid #d6d6d6;
+        border: 1px solid var(--mediumGrey);
         border-radius: 5px;
         width: 100%;
         height: 40px;
         padding-left: 10px;
-        background: whitesmoke;
+        background: var(--white);
     }
 
     input:focus {
         outline: none;
-        border-color: #aabb97;
+        border-color: var(--mediumGreen);
     }
 
     input::placeholder {
-        color: #4a4a4a;
+        color: var(--darkGrey);
     }
 `

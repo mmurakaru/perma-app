@@ -37,9 +37,7 @@ export default function PlantFields({ plant, isLoaded, backToOverview }) {
                                 </Field>
                                 <Data>{plant.growth.soil_texture}</Data>
                                 <Field>Edible</Field>
-                                <Data>
-                                    {plant.edible === true ? 'yes' : 'no'}
-                                </Data>
+                                <Data>{plant.edible ? 'yes' : 'no'}</Data>
                                 <Field>Light (1-10)</Field>
                                 <Data>{plant.growth.light}</Data>
                                 <Field>Sowing</Field>
@@ -61,7 +59,7 @@ export default function PlantFields({ plant, isLoaded, backToOverview }) {
 }
 
 const BackgroundStyled = styled.div`
-    background: #aabb97;
+    background: var(--mediumGreen);
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -71,13 +69,13 @@ const PlantFieldsContainer = styled.section`
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;
-    background-color: #f5f5f5;
+    background-color: var(--white);
     width: 100%;
     overflow: none;
     margin-top: 50px;
 `
 const ArrowDown = styled(ArrowIcon)`
-    fill: #f5f5f5;
+    fill: var(--white);
     width: 20px;
     position: absolute;
     left: 20px;

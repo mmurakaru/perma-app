@@ -26,7 +26,7 @@ function App() {
         <AppStyled>
             <Switch>
                 <Route exact path="/">
-                    <OverviewWrapper>
+                    <OverviewPage>
                         <PageHeader />
                         <SearchField
                             searchTerm={searchTerm}
@@ -36,7 +36,7 @@ function App() {
                             plants={plants}
                             handleClick={showPlantDetails}
                         />
-                    </OverviewWrapper>
+                    </OverviewPage>
                 </Route>
                 <Route path="/plant">
                     <PlantFields
@@ -55,6 +55,6 @@ export default App
 const AppStyled = styled.div`
     height: 100vh;
 `
-const OverviewWrapper = styled.div`
+const OverviewPage = styled.div`
     padding: 20px;
 `

@@ -1,11 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Overview renders correctly 1`] = `
+.c1 img {
+  height: 100px;
+  width: 156px;
+  object-fit: cover;
+  border-radius: 5px;
+  background: var(--darkGrey);
+  background-image: url(perma_logo.svg);
+  background-repeat: no-repeat;
+}
+
+.c0 {
+  margin-top: 20px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  place-items: center;
+  gap: 20px;
+  overflow: auto;
+}
+
+.c0 .link {
+  color: var(--darkGrey);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 <div
-  class="PlantsOverview__ThumbnailWrapper-eai3pl-1 dmxvuR"
+  class="c0"
 >
   <section
-    class="PlantsOverview__PlantThumbnail-eai3pl-0 lojeci"
+    class="c1"
   >
     <img
       alt=""
@@ -16,7 +43,7 @@ exports[`Overview renders correctly 1`] = `
     </h2>
   </section>
   <section
-    class="PlantsOverview__PlantThumbnail-eai3pl-0 lojeci"
+    class="c1"
   >
     <img
       alt=""
