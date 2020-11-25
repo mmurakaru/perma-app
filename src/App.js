@@ -4,8 +4,7 @@ import PlantsOverview from './components/PlantsOverview'
 import SearchField from './components/SearchField'
 import PlantFields from './components/PlantFields'
 import usePlants from './hooks/usePlants'
-import { Switch, Route } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
+import { Switch, Route, useHistory } from 'react-router-dom'
 
 function App() {
     const {
@@ -17,7 +16,7 @@ function App() {
         isLoaded,
     } = usePlants()
 
-    const history = createBrowserHistory()
+    const history = useHistory()
 
     function updateUrl() {
         history.push('/')
