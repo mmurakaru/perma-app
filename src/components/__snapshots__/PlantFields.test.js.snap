@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlantFields renders correctly 1`] = `
+.c0 {
+  background: var(--mediumGreen);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.c1 {
+  border-radius: 6px;
+  box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+  padding: 20px;
+  background-color: var(--white);
+  width: 100%;
+  overflow: none;
+  margin-top: 50px;
+}
+
+.c2 {
+  fill: var(--white);
+  width: 20px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.c3 img {
+  height: 100px;
+  width: 156px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background: #4a4a4a;
+  background-image: url(perma_logo.svg);
+  background-repeat: no-repeat;
+}
+
+.c4 {
+  max-height: 500px;
+  overflow-y: auto;
+  border-top: 0.5px solid #e8e8e8;
+}
+
+.c5 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.c6 {
+  font-weight: 600;
+  color: #4a4a4a;
+  opacity: 50%;
+  line-height: 1.333;
+  font-size: 75%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.c7 {
+  font-weight: 600;
+  color: #4a4a4a;
+  line-height: 1.333;
+  font-size: 75%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.c8 {
+  font-weight: 400;
+  color: #4a4a4a;
+  line-height: 1.333;
+  font-size: 75%;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+<div
+  class="c0"
+>
+  <section
+    class="c1"
+  >
+    <svg
+      class="c2"
+      data-testid="ArrowDown"
+    >
+      arrow_down.svg
+    </svg>
+    <section
+      class="c3"
+    >
+      <img
+        alt=""
+        src="https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed"
+      />
+      <h2>
+        European mountain ash
+      </h2>
+    </section>
+    <div
+      class="c4"
+    >
+      <div
+        class="c5"
+      >
+        <span
+          class="c6"
+        >
+          Family
+        </span>
+        <span
+          class="c7"
+        >
+          Rosaceae
+        </span>
+        <span
+          class="c6"
+        >
+          Average-height (cm)
+        </span>
+        <span
+          class="c7"
+        >
+          300
+        </span>
+        <span
+          class="c6"
+        >
+          Minimum-temperature (deg-c)
+        </span>
+        <span
+          class="c7"
+        >
+          -36
+        </span>
+        <span
+          class="c6"
+        >
+          Soil texture 
+          <br />
+           (0)clay) - (10)rock
+        </span>
+        <span
+          class="c7"
+        >
+          4
+        </span>
+        <span
+          class="c6"
+        >
+          Edible
+        </span>
+        <span
+          class="c7"
+        >
+          no
+        </span>
+        <span
+          class="c6"
+        >
+          Light (1-10)
+        </span>
+        <span
+          class="c7"
+        >
+          7
+        </span>
+        <span
+          class="c6"
+        >
+          Sowing
+        </span>
+        <span
+          class="c7"
+        >
+          Lorem ipsum
+        </span>
+        <span
+          class="c6"
+        >
+          Row spacing
+        </span>
+        <span
+          class="c7"
+        >
+          30
+        </span>
+        <span
+          class="c6"
+        >
+          Days to harvest
+        </span>
+        <span
+          class="c7"
+        >
+          60
+        </span>
+      </div>
+      <p
+        class="c8"
+      >
+        Lorem ipsum
+      </p>
+    </div>
+  </section>
+</div>
+`;

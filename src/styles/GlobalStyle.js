@@ -9,6 +9,14 @@ export default createGlobalStyle`
 
 :root {
     font-size: 112.5%;
+
+    --white: #F5F5F5;
+    --lightGrey: #E8E8E8;
+    --mediumGrey: #D6D6D6;
+    --darkGrey: #4A4A4A;
+    --lightGreen: #DCEDC8;
+    --mediumGreen: #AABB97;
+    --darkGreen: #003300;
 }
 
 body {
@@ -17,10 +25,8 @@ body {
     width: 100%;
     min-width: 375px;
     max-width: 450px;
-    padding: 20px;
-    background: whitesmoke;
-    overflow: hidden;
-    color: #4a4a4a;
+    background: var(--white);
+    color: var(--darkGrey);
 }
 h1 {
     font-weight: 600;

@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react'
 import getPlants from '../services/getPlants'
 import searchPlants from '../services/searchPlants'
+import getFields from '../services/getFields'
+import { useHistory } from 'react-router-dom'
 
 export default function usePlants() {
     const [plants, setPlants] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
+    const [plant, setPlant] = useState({})
+    const [isLoaded, setIsLoaded] = useState(false)
     const filteredPlants = filterPlants(searchTerm)
+    const history = useHistory()
 
     useEffect(() => {
         filteredPlants.length === 0 &&
@@ -31,27 +36,42 @@ export default function usePlants() {
         plants: filteredPlants,
         searchTerm,
         updateSearchTerm: setSearchTerm,
+        showPlantDetails,
+        plant,
+        isLoaded,
     }
 
     function filterPlants(searchTerm) {
         return [
             ...new Set([
-                ...plants.filter(({ common_name }) =>
+                ...plants?.filter(({ common_name }) =>
                     common_name
                         ?.toLowerCase()
                         .startsWith(searchTerm.toLowerCase())
                 ),
-                ...plants.filter(({ common_name }) =>
+                ...plants?.filter(({ common_name }) =>
                     common_name
                         ?.toLowerCase()
                         .includes(' ' + searchTerm.toLowerCase())
                 ),
-                ...plants.filter(({ common_name }) =>
+                ...plants?.filter(({ common_name }) =>
                     common_name
                         ?.toLowerCase()
                         .includes(searchTerm.toLowerCase())
                 ),
             ]),
         ]
+    }
+
+    function showPlantDetails(id) {
+        history.push('/plant')
+        setIsLoaded(false)
+        setPlant(plants.find((plant) => plant.id === id))
+        getFields(id)
+            .then((results) => {
+                setPlant(results.data)
+                setIsLoaded(true)
+            })
+            .catch((error) => console.log(error.message))
     }
 }
