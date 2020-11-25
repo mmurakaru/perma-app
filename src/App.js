@@ -26,21 +26,23 @@ function App() {
         <AppStyled>
             <Switch>
                 <Route exact path="/">
-                    <PageHeader />
-                    <SearchField
-                        searchTerm={searchTerm}
-                        onType={updateSearchTerm}
-                    />
-                    <PlantsOverview
-                        plants={plants}
-                        handleClick={showPlantDetails}
-                    />
+                    <OverviewWrapper>
+                        <PageHeader />
+                        <SearchField
+                            searchTerm={searchTerm}
+                            onType={updateSearchTerm}
+                        />
+                        <PlantsOverview
+                            plants={plants}
+                            handleClick={showPlantDetails}
+                        />
+                    </OverviewWrapper>
                 </Route>
                 <Route path="/plant">
                     <PlantFields
                         plant={plant}
                         isLoaded={isLoaded}
-                        backToHome={updateUrl}
+                        backToOverview={updateUrl}
                     />
                 </Route>
             </Switch>
@@ -52,4 +54,7 @@ export default App
 
 const AppStyled = styled.div`
     height: 100vh;
+`
+const OverviewWrapper = styled.div`
+    padding: 20px;
 `

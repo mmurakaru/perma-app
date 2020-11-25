@@ -2,25 +2,25 @@
 
 exports[`Overview renders correctly 1`] = `
 <div
-  class="PlantsOverview__ThumbnailWrapper-eai3pl-1 LkdTC"
+  class="PlantsOverview__ThumbnailWrapper-eai3pl-1 dmxvuR"
 >
   <section
-    class="PlantsOverview__PlantThumbnail-eai3pl-0 iLHrai"
+    class="PlantsOverview__PlantThumbnail-eai3pl-0 lojeci"
   >
     <img
       alt=""
-      src="https://source.unsplash.com/random/life"
+      src="https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed"
     />
     <h2>
       Coconut palm
     </h2>
   </section>
   <section
-    class="PlantsOverview__PlantThumbnail-eai3pl-0 iLHrai"
+    class="PlantsOverview__PlantThumbnail-eai3pl-0 lojeci"
   >
     <img
       alt=""
-      src="https://source.unsplash.com/random/plant"
+      src="https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed"
     />
     <h2>
       Strawberry

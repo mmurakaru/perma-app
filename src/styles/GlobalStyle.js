@@ -17,9 +17,7 @@ body {
     width: 100%;
     min-width: 375px;
     max-width: 450px;
-    padding: 20px;
     background: whitesmoke;
-    overflow: hidden;
     color: #4a4a4a;
 }
 h1 {

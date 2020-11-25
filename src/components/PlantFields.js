@@ -4,56 +4,68 @@ import logo from '../assets/perma_logo.svg'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
 
 PlantFields.propTypes = {
-    plants: PropTypes.array,
+    plant: PropTypes.object,
+    isLoaded: PropTypes.bool,
+    backToOverview: PropTypes.func,
 }
 
-export default function PlantFields({ plant, isLoaded, backToHome }) {
-    document.body.style.backgroundColor = '#AABB97'
+export default function PlantFields({ plant, isLoaded, backToOverview }) {
     return (
-        <PlantFieldsContainer>
-            <ArrowDown onClick={backToHome} />
-            {isLoaded ? (
-                <>
-                    <PlantThumbnail key={plant.id}>
-                        <img src={plant.image_url} alt="" />
-                        <h2>{plant.common_name}</h2>
-                    </PlantThumbnail>
-                    <FieldsWrapper>
-                        <FieldsStyled>
-                            <Field>Family</Field>
-                            <Data>{plant.family}</Data>
-                            <Field>Average-height (cm)</Field>
-                            <Data>
-                                {plant.specifications.average_height.cm}
-                            </Data>
-                            <Field>Minimum-temperature (deg-c)</Field>
-                            <Data>
-                                {plant.growth.minimum_temperature.deg_c}
-                            </Data>
-                            <Field>
-                                Soil texture <br /> (0)clay) - (10)rock
-                            </Field>
-                            <Data>{plant.growth.soil_texture}</Data>
-                            <Field>Edible</Field>
-                            <Data>{plant.edible === true ? 'yes' : 'no'}</Data>
-                            <Field>Light (1-10)</Field>
-                            <Data>{plant.growth.light}</Data>
-                            <Field>Sowing</Field>
-                            <Data>{plant.growth.sowing}</Data>
-                            <Field>Row spacing</Field>
-                            <Data>{plant.growth.row_spacing.cm}</Data>
-                            <Field>Days to harvest</Field>
-                            <Data>{plant.growth.days_to_harvest}</Data>
-                        </FieldsStyled>
-                        <Text>{plant.growth.description}</Text>
-                    </FieldsWrapper>
-                </>
-            ) : (
-                <LoadingMsgStyled />
-            )}
-        </PlantFieldsContainer>
+        <BackgroundStyled>
+            <PlantFieldsContainer>
+                <ArrowDown data-testid="ArrowDown" onClick={backToOverview} />
+                {isLoaded ? (
+                    <>
+                        <PlantThumbnail key={plant.id}>
+                            <img src={plant.image_url} alt="" />
+                            <h2>{plant.common_name}</h2>
+                        </PlantThumbnail>
+                        <FieldsWrapper>
+                            <FieldsStyled>
+                                <Field>Family</Field>
+                                <Data>{plant.family}</Data>
+                                <Field>Average-height (cm)</Field>
+                                <Data>
+                                    {plant.specifications.average_height.cm}
+                                </Data>
+                                <Field>Minimum-temperature (deg-c)</Field>
+                                <Data>
+                                    {plant.growth.minimum_temperature.deg_c}
+                                </Data>
+                                <Field>
+                                    Soil texture <br /> (0)clay) - (10)rock
+                                </Field>
+                                <Data>{plant.growth.soil_texture}</Data>
+                                <Field>Edible</Field>
+                                <Data>
+                                    {plant.edible === true ? 'yes' : 'no'}
+                                </Data>
+                                <Field>Light (1-10)</Field>
+                                <Data>{plant.growth.light}</Data>
+                                <Field>Sowing</Field>
+                                <Data>{plant.growth.sowing}</Data>
+                                <Field>Row spacing</Field>
+                                <Data>{plant.growth.row_spacing.cm}</Data>
+                                <Field>Days to harvest</Field>
+                                <Data>{plant.growth.days_to_harvest}</Data>
+                            </FieldsStyled>
+                            <Text>{plant.growth.description}</Text>
+                        </FieldsWrapper>
+                    </>
+                ) : (
+                    <LoadingMsgStyled />
+                )}
+            </PlantFieldsContainer>
+        </BackgroundStyled>
     )
 }
+
+const BackgroundStyled = styled.div`
+    background: #aabb97;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+`
 
 const PlantFieldsContainer = styled.section`
     border-radius: 6px;
@@ -62,7 +74,7 @@ const PlantFieldsContainer = styled.section`
     background-color: #f5f5f5;
     width: 100%;
     overflow: none;
-    margin-top: 70px;
+    margin-top: 50px;
 `
 const ArrowDown = styled(ArrowIcon)`
     fill: #f5f5f5;
@@ -91,7 +103,7 @@ const PlantThumbnail = styled.section`
 `
 
 const FieldsWrapper = styled.div`
-    max-height: 600px;
+    max-height: 500px;
     overflow-y: auto;
     border-top: 0.5px solid #e8e8e8;
 `

@@ -1,27 +1,20 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import logo from '../assets/perma_logo.svg'
-import { Link } from 'react-router-dom'
 
 PlantsOverview.propTypes = {
     plants: PropTypes.array,
 }
 
 export default function PlantsOverview({ plants, handleClick }) {
-    document.body.style.backgroundColor = '#F5F5F5'
     return (
         <ThumbnailWrapper>
             {plants.length > 0 ? (
                 plants?.map(({ id, common_name, image_url }) => (
-                    <Link to="/plant" className="link">
-                        <PlantThumbnail
-                            onClick={() => handleClick(id)}
-                            key={id}
-                        >
-                            <img src={image_url} alt="" />
-                            <h2>{common_name}</h2>
-                        </PlantThumbnail>
-                    </Link>
+                    <PlantThumbnail onClick={() => handleClick(id)} key={id}>
+                        <img src={image_url} alt="" />
+                        <h2>{common_name}</h2>
+                    </PlantThumbnail>
                 ))
             ) : (
                 <ErrorMsgStyled>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import getPlants from '../services/getPlants'
 import searchPlants from '../services/searchPlants'
 import getFields from '../services/getFields'
+import { useHistory } from 'react-router-dom'
 
 export default function usePlants() {
     const [plants, setPlants] = useState([])
@@ -9,6 +10,7 @@ export default function usePlants() {
     const [plant, setPlant] = useState({})
     const [isLoaded, setIsLoaded] = useState(false)
     const filteredPlants = filterPlants(searchTerm)
+    const history = useHistory()
 
     useEffect(() => {
         filteredPlants.length === 0 &&
@@ -62,6 +64,7 @@ export default function usePlants() {
     }
 
     function showPlantDetails(id) {
+        history.push('/plant')
         setIsLoaded(false)
         setPlant(plants.find((plant) => plant.id === id))
         getFields(id)

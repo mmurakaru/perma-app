@@ -1,5 +1,6 @@
 import PlantFields from './PlantFields'
 import { render } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 describe('PlantFields', () => {
     it('renders correctly', () => {
@@ -35,5 +36,15 @@ describe('PlantFields', () => {
             />
         )
         expect(container.firstChild).toMatchSnapshot()
+    })
+
+    const onClickMock = jest.fn()
+
+    it('calls onClick', () => {
+        const { getByTestId } = render(
+            <PlantFields backToOverview={onClickMock} />
+        )
+        userEvent.click(getByTestId('ArrowDown'), 'Coconut')
+        expect(onClickMock).toHaveBeenCalled()
     })
 })
