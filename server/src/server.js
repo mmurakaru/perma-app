@@ -22,19 +22,19 @@ app.listen(port, () => {
 
 
 
-// // The parameters for our POST request
-// const params = {
-//   origin: 'http://localhost:3001/',
-//   token: '5slwOv-vNendNI-A4LtwJJiM0KHc_t-nTx4zxp88yMI'
-// }
+// The parameters for our POST request
+const params = {
+  origin: 'http://localhost:3001/',
+  token: '5slwOv-vNendNI-A4LtwJJiM0KHc_t-nTx4zxp88yMI'
+}
 
-// (async () => {
-//   const response = await fetch(
-//     'https://trefle.io/api/auth/claim', {
-//       method: 'post',
-//       body: JSON.stringify(params),
-//       headers: { 'Content-Type': 'application/json' }
-//     });
-//   const json = await response.json();
-//   console.log(json);
-// })();
+fetch('https://trefle.io/api/auth/claim', {
+  method: 'post',
+  body: JSON.stringify(params),
+  headers: { 'Content-Type': 'application/json' }
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => console.log(err))
