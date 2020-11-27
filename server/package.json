@@ -3,7 +3,7 @@
     "private": true,
     "version": "1.0.0",
     "description": "Boilerplate for Create-React-App with an Express.js API",
-    "main": "src/server.js",
+    "main": "server.js",
     "scripts": {
         "postinstall": "cd client && npm install",
         "build": "cd client && npm run build && npm run build-storybook",
@@ -14,8 +14,8 @@
         "dev": "concurrently \"npm run server\" \"npm run client\"",
         "client": "cd client && npm start",
         "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,md,mdx,html,css,json}\"",
-        "server": "nodemon src/server.js",
-        "start": "node src/server.js"
+        "server": "nodemon server.js",
+        "start": "node server.js"
     },
     "repository": {
         "type": "git",
