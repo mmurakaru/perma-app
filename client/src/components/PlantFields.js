@@ -101,7 +101,7 @@ const PlantThumbnail = styled.section`
 `
 
 const FieldsWrapper = styled.div`
-    max-height: 500px;
+    max-height: 55vh;
     overflow-y: auto;
     border-top: 0.5px solid #e8e8e8;
 `
