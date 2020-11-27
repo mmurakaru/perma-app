@@ -111,16 +111,6 @@ const FieldsStyled = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
 `
-
-const Field = styled.span`
-    font-weight: 600;
-    color: #4a4a4a;
-    opacity: 50%;
-    line-height: 1.333;
-    font-size: 75%;
-    margin-top: 20px;
-    margin-bottom: 10px;
-`
 const Data = styled.span`
     font-weight: 600;
     color: #4a4a4a;
@@ -128,6 +118,9 @@ const Data = styled.span`
     font-size: 75%;
     margin-top: 20px;
     margin-bottom: 10px;
+`
+const Field = styled(Data)`
+    opacity: 50%;
 `
 const Text = styled.p`
     font-weight: 400;
