@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import getPlants from '../services/getPlants'
 import searchPlants from '../services/searchPlants'
 import getFields from '../services/getFields'
+import getToken from '../services/getToken'
 import { useHistory } from 'react-router-dom'
 
 export default function usePlants() {
@@ -11,6 +12,7 @@ export default function usePlants() {
     const [isLoaded, setIsLoaded] = useState(false)
     const filteredPlants = filterPlants(searchTerm)
     const history = useHistory()
+    const [token, setToken] = useState('')
 
     useEffect(() => {
         filteredPlants.length === 0 &&
@@ -24,11 +26,14 @@ export default function usePlants() {
     }, [searchTerm])
 
     useEffect(() => {
-        getPlants()
-            .then((data) => {
-                setPlants(data.data)
-            })
-            .catch((error) => console.log(error.message))
+        getToken().then((data) => {
+            setToken(data)
+            getPlants(data)
+                .then((result) => {
+                    setPlants(result.data)
+                })
+                .catch((error) => console.log(error.message))
+        })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -67,7 +72,7 @@ export default function usePlants() {
         history.push('/plant')
         setIsLoaded(false)
         setPlant(plants.find((plant) => plant.id === id))
-        getFields(id)
+        getFields(id, token)
             .then((results) => {
                 setPlant(results.data)
                 setIsLoaded(true)
