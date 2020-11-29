@@ -94,7 +94,7 @@ const PlantThumbnail = styled.section`
         object-fit: cover;
         border-radius: 5px;
         margin-bottom: 5px;
-        background: #4a4a4a;
+        background: var(--darkGrey);
         background-image: url(${logo});
         background-repeat: no-repeat;
     }
@@ -103,7 +103,7 @@ const PlantThumbnail = styled.section`
 const FieldsWrapper = styled.div`
     max-height: 55vh;
     overflow-y: auto;
-    border-top: 0.5px solid #e8e8e8;
+    border-top: 0.5px solid var(--lightGrey);
 `
 
 const FieldsStyled = styled.div`
@@ -113,7 +113,7 @@ const FieldsStyled = styled.div`
 `
 const Data = styled.span`
     font-weight: 600;
-    color: #4a4a4a;
+    color: var(--darkGrey);
     line-height: 1.333;
     font-size: 75%;
     margin-top: 20px;
@@ -124,7 +124,7 @@ const Field = styled(Data)`
 `
 const Text = styled.p`
     font-weight: 400;
-    color: #4a4a4a;
+    color: var(--darkGrey);
     line-height: 1.333;
     font-size: 75%;
     margin-top: 40px;
@@ -133,7 +133,7 @@ const Text = styled.p`
 const LoadingMsgStyled = styled.img`
     width: 40px;
     height: 40px;
-    background-color: #aabb97;
+    background-color: var(--mediumGreen);
     border-radius: 100%;
     animation: scaleout 1s infinite ease-in-out;
 

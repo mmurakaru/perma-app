@@ -8,14 +8,10 @@ const port = process.env.PORT || 3001;
 
 app.use(cors())
 
-app.use('/api/token', async (req, res) => {
+app.get('/api/token', async (req, res) => {
   const token = await getJWT()
   res.send(token)
 })
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-  })
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
