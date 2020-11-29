@@ -28,12 +28,12 @@ export default function usePlants() {
     useEffect(() => {
         getToken().then((data) => {
             setToken(data)
+            getPlants(data)
+                .then((result) => {
+                    setPlants(result.data)
+                })
+                .catch((error) => console.log(error.message))
         })
-        getPlants()
-            .then((data) => {
-                setPlants(data.data)
-            })
-            .catch((error) => console.log(error.message))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
