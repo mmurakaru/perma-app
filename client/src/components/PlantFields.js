@@ -49,6 +49,9 @@ export default function PlantFields({ plant, isLoaded, backToOverview }) {
                             </FieldsStyled>
                             <Text>{plant.growth.description}</Text>
                         </FieldsWrapper>
+                        <ButtonWrapper>
+                            <ButtonStyled>Add to space</ButtonStyled>
+                        </ButtonWrapper>
                     </>
                 ) : (
                     <LoadingMsgStyled />
@@ -57,6 +60,20 @@ export default function PlantFields({ plant, isLoaded, backToOverview }) {
         </BackgroundStyled>
     )
 }
+
+const ButtonWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+`
+const ButtonStyled = styled.button`
+    color: var(--white);
+    background-color: var(--darkGreen);
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    padding: 15px;
+`
 
 const BackgroundStyled = styled.div`
     background: var(--mediumGreen);
@@ -101,7 +118,7 @@ const PlantThumbnail = styled.section`
 `
 
 const FieldsWrapper = styled.div`
-    max-height: 55vh;
+    max-height: 50vh;
     overflow-y: auto;
     border-top: 0.5px solid var(--lightGrey);
 `
