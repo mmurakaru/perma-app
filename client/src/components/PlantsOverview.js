@@ -46,11 +46,6 @@ const ThumbnailWrapper = styled.div`
     place-items: center;
     gap: 20px;
     overflow: auto;
-
-    .link {
-        color: var(--darkGrey);
-        text-decoration: none;
-    }
 `
 
 const ErrorMsgStyled = styled.h2`

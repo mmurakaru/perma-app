@@ -5,6 +5,7 @@ import SearchField from './components/SearchField'
 import PlantFields from './components/PlantFields'
 import usePlants from './hooks/usePlants'
 import { Switch, Route, useHistory } from 'react-router-dom'
+import SpaceCreator from './components/SpaceCreator'
 
 function App() {
     const {
@@ -20,6 +21,10 @@ function App() {
 
     function updateUrl() {
         history.push('/')
+    }
+
+    function backToPlantFields() {
+        history.push('/plant')
     }
 
     return (
@@ -43,6 +48,12 @@ function App() {
                         plant={plant}
                         isLoaded={isLoaded}
                         backToOverview={updateUrl}
+                    />
+                </Route>
+                <Route path="/spaceCreator">
+                    <SpaceCreator
+                        plant={plant}
+                        backToPlantFields={backToPlantFields}
                     />
                 </Route>
             </Switch>

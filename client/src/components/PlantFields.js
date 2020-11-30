@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import logo from '../assets/perma_logo.svg'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
+import { Link } from 'react-router-dom'
 
 PlantFields.propTypes = {
     plant: PropTypes.object,
@@ -49,9 +50,11 @@ export default function PlantFields({ plant, isLoaded, backToOverview }) {
                             </FieldsStyled>
                             <Text>{plant.growth.description}</Text>
                         </FieldsWrapper>
-                        <ButtonWrapper>
-                            <ButtonStyled>Add to space</ButtonStyled>
-                        </ButtonWrapper>
+                        <Link class="link" to="/spaceCreator">
+                            <ButtonWrapper>
+                                <ButtonStyled>Add to space</ButtonStyled>
+                            </ButtonWrapper>
+                        </Link>
                     </>
                 ) : (
                     <LoadingMsgStyled />
@@ -90,6 +93,11 @@ const PlantFieldsContainer = styled.section`
     width: 100%;
     overflow: none;
     margin-top: 50px;
+
+    .link {
+        color: var(--darkGrey);
+        text-decoration: none;
+    }
 `
 const ArrowDown = styled(ArrowIcon)`
     fill: var(--white);
