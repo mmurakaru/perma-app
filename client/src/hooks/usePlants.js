@@ -17,7 +17,7 @@ export default function usePlants() {
     useEffect(() => {
         filteredPlants.length === 0 &&
             searchTerm.length > 0 &&
-            searchPlants(searchTerm)
+            searchPlants(searchTerm, token)
                 .then((results) => {
                     setPlants(results.data)
                 })
