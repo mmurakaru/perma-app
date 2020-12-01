@@ -20,6 +20,14 @@ export default function SpaceCreator({ backToPlantFields, spaceName }) {
                 <h2>Choose a space</h2>
                 <>
                     <SpacesContainer>
+                        {spaceName.map((name, index) => (
+                            <SpaceWrapper key={index}>
+                                <SpaceIcon>
+                                    <LogoStyled />
+                                </SpaceIcon>
+                                <h2>{name}</h2>
+                            </SpaceWrapper>
+                        ))}
                         <Link className="link" to="/newSpace">
                             <SpaceWrapper>
                                 <NewSpaceIcon>

@@ -41,7 +41,7 @@ function App() {
 
     function activateButton(name) {
         const str = name
-        const newSpaceName = str.split(' ')
+        const newSpaceName = str.split()
         setSpaceName(newSpaceName)
         setSubmitDisabled(false)
     }
