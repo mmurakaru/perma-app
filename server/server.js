@@ -1,10 +1,10 @@
 const express = require("express")
-const jwt = require("jsonwebtoken")
 const cors = require("cors")
 const fetch = require('node-fetch')
 
 const app = express();
 const port = process.env.PORT || 3001;
+const apiKey = process.env.API_KEY;
 
 app.use(cors())
 
@@ -21,7 +21,7 @@ app.listen(port, () => {
 function getJWT() {
 const params = {
   origin: 'http://localhost:3000',
-  token: '5slwOv-vNendNI-A4LtwJJiM0KHc_t-nTx4zxp88yMI'
+  token: apiKey
 }
 
 return fetch('https://trefle.io/api/auth/claim', {

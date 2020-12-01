@@ -6,6 +6,8 @@ import PlantFields from './components/PlantFields'
 import usePlants from './hooks/usePlants'
 import { Switch, Route, useHistory } from 'react-router-dom'
 import SpaceCreator from './components/SpaceCreator'
+import NewSpace from './components/NewSpace'
+import { useState } from 'react'
 
 function App() {
     const {
@@ -25,6 +27,23 @@ function App() {
 
     function backToPlantFields() {
         history.push('/plant')
+    }
+
+    //space creator logic
+    const [submitDisabled, setSubmitDisabled] = useState(true)
+    const [spaceName, setSpaceName] = useState([])
+
+    function submitHandler(event) {
+        event.preventDefault()
+        setSubmitDisabled(true)
+        history.push('/spaceCreator')
+    }
+
+    function activateButton(name) {
+        const str = name
+        const newSpaceName = str.split(' ')
+        setSpaceName(newSpaceName)
+        setSubmitDisabled(false)
     }
 
     return (
@@ -52,8 +71,15 @@ function App() {
                 </Route>
                 <Route path="/spaceCreator">
                     <SpaceCreator
-                        plant={plant}
                         backToPlantFields={backToPlantFields}
+                        spaceName={spaceName}
+                    />
+                </Route>
+                <Route path="/newSpace">
+                    <NewSpace
+                        activateButton={activateButton}
+                        submitDisabled={submitDisabled}
+                        submitHandler={submitHandler}
                     />
                 </Route>
             </Switch>

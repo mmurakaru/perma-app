@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
 import { ReactComponent as Plus } from '../assets/plus.svg'
 import { ReactComponent as Logo } from '../assets/perma_logo.svg'
+import { Link } from 'react-router-dom'
 
 SpaceCreator.propTypes = {
     backToPlantFields: PropTypes.func,
 }
 
-export default function SpaceCreator({ backToPlantFields }) {
+export default function SpaceCreator({ backToPlantFields, spaceName }) {
     return (
         <BackgroundStyled>
             <SpaceCreatorContainer>
@@ -19,18 +20,20 @@ export default function SpaceCreator({ backToPlantFields }) {
                 <h2>Choose a space</h2>
                 <>
                     <SpacesContainer>
-                        <SpaceWrapper>
+                        <Link className="link" to="/newSpace">
+                            <SpaceWrapper>
+                                <NewSpaceIcon>
+                                    <PlusIcon />
+                                </NewSpaceIcon>
+                                <h2>Create a new space</h2>
+                            </SpaceWrapper>
+                        </Link>
+                        {/* <SpaceWrapper>
                             <SpaceIcon>
                                 <LogoStyled />
                             </SpaceIcon>
                             <h2>Vegetables</h2>
-                        </SpaceWrapper>
-                        <SpaceWrapper>
-                            <NewSpaceIcon>
-                                <PlusIcon />
-                            </NewSpaceIcon>
-                            <h2>Create a new space</h2>
-                        </SpaceWrapper>
+                        </SpaceWrapper> */}
                     </SpacesContainer>
 
                     <ButtonWrapper>
@@ -96,6 +99,11 @@ const SpacesContainer = styled.div`
     place-items: center;
     gap: 20px;
     overflow: auto;
+
+    .link {
+        color: var(--darkGrey);
+        text-decoration: none;
+    }
 `
 
 const NewSpaceIcon = styled.div`
