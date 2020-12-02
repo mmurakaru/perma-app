@@ -2,19 +2,24 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import logo from '../assets/perma_logo.svg'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
-import { Link } from 'react-router-dom'
 
 PlantFields.propTypes = {
     plant: PropTypes.object,
     isLoaded: PropTypes.bool,
-    backToOverview: PropTypes.func,
+    switchToOverview: PropTypes.func,
+    switchToSpaceOverview: PropTypes.func,
 }
 
-export default function PlantFields({ plant, isLoaded, backToOverview }) {
+export default function PlantFields({
+    plant,
+    isLoaded,
+    switchToOverview,
+    switchToSpaceOverview,
+}) {
     return (
         <BackgroundStyled>
             <PlantFieldsContainer>
-                <ArrowDown data-testid="ArrowDown" onClick={backToOverview} />
+                <ArrowDown data-testid="ArrowDown" onClick={switchToOverview} />
                 {isLoaded ? (
                     <>
                         <PlantThumbnail key={plant.id}>
@@ -50,11 +55,9 @@ export default function PlantFields({ plant, isLoaded, backToOverview }) {
                             </FieldsStyled>
                             <Text>{plant.growth.description}</Text>
                         </FieldsWrapper>
-                        <Link className="link" to="/spaceCreator">
-                            <ButtonWrapper>
-                                <ButtonStyled>Add to space</ButtonStyled>
-                            </ButtonWrapper>
-                        </Link>
+                        <ButtonWrapper onClick={switchToSpaceOverview}>
+                            <ButtonStyled>Add to space</ButtonStyled>
+                        </ButtonWrapper>
                     </>
                 ) : (
                     <LoadingMsgStyled />

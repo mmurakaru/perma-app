@@ -1,11 +1,18 @@
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
 import { ReactComponent as Banana } from '../assets/banana.svg'
+
+SpaceDetails.propTypes = {
+    plant: PropTypes.object,
+    spaceDetails: PropTypes.array,
+    switchToSpaceOverview: PropTypes.func,
+}
 
 export default function SpaceDetails({
     spaceDetails,
     plant,
-    backToSpaceCreatorPage,
+    switchToSpaceOverview,
 }) {
     let today = new Date()
     const dd = String(today.getDate()).padStart(2, '0')
@@ -15,7 +22,7 @@ export default function SpaceDetails({
 
     return (
         <BackgroundStyled>
-            <ArrowDown onClick={backToSpaceCreatorPage} />
+            <ArrowDown onClick={switchToSpaceOverview} />
             <DetailsConainer>
                 <SpaceWrapper>
                     <SpaceIcon>

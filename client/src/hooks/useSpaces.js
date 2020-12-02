@@ -8,20 +8,22 @@ export default function useSpaces() {
     const [spaceTitles, setSpaceTitles] = useState([])
     const [spaceDetails, setSpaceDetails] = useState([])
 
+    console.log(spaceTitles)
+
     return {
         submitDisabled,
         submitHandler,
         updateTitle,
         spaceTitles,
         spaceDetails,
-        handleClick,
+        updateSpaceDetails,
     }
 
     function submitHandler(event) {
         event.preventDefault()
         setSpaceTitles([spaceTitle, ...spaceTitles])
         setSubmitDisabled(true)
-        history.push('/spaceCreator')
+        history.push('/spaceOverview')
     }
 
     function updateTitle(title) {
@@ -29,7 +31,7 @@ export default function useSpaces() {
         setSubmitDisabled(false)
     }
 
-    function handleClick(spaceIndex) {
+    function updateSpaceDetails(spaceIndex) {
         const space = spaceTitles.find((_, index) => index === spaceIndex)
         setSpaceDetails(space)
         history.push('/spaceDetails')

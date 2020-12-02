@@ -6,9 +6,9 @@ import PageHeader from './components/PageHeader'
 import PlantsOverview from './components/PlantsOverview'
 import SearchField from './components/SearchField'
 import PlantFields from './components/PlantFields'
-import SpaceCreator from './components/SpaceCreator'
+import SpaceOverview from './components/SpaceOverview'
 import SpaceDetails from './components/SpaceDetails'
-import NewSpace from './components/NewSpace'
+import SpaceCreator from './components/SpaceCreator'
 
 function App() {
     const {
@@ -25,22 +25,26 @@ function App() {
         submitHandler,
         updateTitle,
         spaceTitles,
-        handleClick,
         spaceDetails,
+        updateSpaceDetails,
     } = useSpaces()
 
     const history = useHistory()
 
-    function updateUrl() {
+    function switchToOverview() {
         history.push('/')
     }
 
-    function backToPlantFields() {
-        history.push('/plant')
+    function switchToPlantFields() {
+        history.push('/PlantFields')
     }
 
-    function backToSpaceCreatorPage() {
-        history.push('/spaceCreator')
+    function switchToSpaceOverview() {
+        history.push('/SpaceOverview')
+    }
+
+    function switchToSpaceCreator() {
+        history.push('/SpaceCreator')
     }
 
     return (
@@ -59,32 +63,34 @@ function App() {
                         />
                     </OverviewPage>
                 </Route>
-                <Route path="/plant">
+                <Route path="/PlantFields">
                     <PlantFields
                         plant={plant}
                         isLoaded={isLoaded}
-                        backToOverview={updateUrl}
+                        switchToOverview={switchToOverview}
+                        switchToSpaceOverview={switchToSpaceOverview}
                     />
                 </Route>
-                <Route path="/spaceCreator">
-                    <SpaceCreator
-                        backToPlantFields={backToPlantFields}
+                <Route path="/SpaceOverview">
+                    <SpaceOverview
+                        switchToPlantFields={switchToPlantFields}
                         spaceTitles={spaceTitles}
-                        handleClick={handleClick}
+                        updateSpaceDetails={updateSpaceDetails}
+                        switchToSpaceCreator={switchToSpaceCreator}
                     />
                 </Route>
-                <Route path="/newSpace">
-                    <NewSpace
+                <Route path="/SpaceCreator">
+                    <SpaceCreator
                         updateTitle={updateTitle}
                         submitDisabled={submitDisabled}
                         submitHandler={submitHandler}
                     />
                 </Route>
-                <Route path="/spaceDetails">
+                <Route path="/SpaceDetails">
                     <SpaceDetails
                         spaceDetails={spaceDetails}
                         plant={plant}
-                        backToSpaceCreatorPage={backToSpaceCreatorPage}
+                        switchToSpaceOverview={switchToSpaceOverview}
                     />
                 </Route>
             </Switch>

@@ -69,7 +69,7 @@ export default function usePlants() {
     }
 
     function showPlantDetails(id) {
-        history.push('/plant')
+        history.push('/PlantFields')
         setIsLoaded(false)
         setPlant(plants.find((plant) => plant.id === id))
         getFields(id, token)

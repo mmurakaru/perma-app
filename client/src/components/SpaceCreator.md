@@ -1,0 +1,5 @@
+SpaceCreator example:
+
+```js
+<SpaceCreator />
+```
