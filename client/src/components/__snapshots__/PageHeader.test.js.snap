@@ -1,8 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageHeader renders correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  width: 100%;
+  height: 20px;
+  margin-bottom: 20px;
+}
+
 <div
-  class="PageHeader__HeaderWrapper-sc-25gwsu-0 iRERYq"
+  class="c0"
 >
   <h1>
     Overview

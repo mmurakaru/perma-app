@@ -42,7 +42,7 @@ describe('PlantFields', () => {
 
     it('calls onClick', () => {
         const { getByTestId } = render(
-            <PlantFields backToOverview={onClickMock} />
+            <PlantFields switchToOverview={onClickMock} />
         )
         userEvent.click(getByTestId('ArrowDown'), 'Coconut')
         expect(onClickMock).toHaveBeenCalled()

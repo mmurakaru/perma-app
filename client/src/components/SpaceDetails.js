@@ -22,7 +22,10 @@ export default function SpaceDetails({
 
     return (
         <BackgroundStyled>
-            <ArrowDown onClick={switchToSpaceOverview} />
+            <ArrowDown
+                data-testid="ArrowDown"
+                onClick={switchToSpaceOverview}
+            />
             <DetailsConainer>
                 <SpaceWrapper>
                     <SpaceIcon>
