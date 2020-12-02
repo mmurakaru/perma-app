@@ -50,7 +50,7 @@ export default function PlantFields({ plant, isLoaded, backToOverview }) {
                             </FieldsStyled>
                             <Text>{plant.growth.description}</Text>
                         </FieldsWrapper>
-                        <Link class="link" to="/spaceCreator">
+                        <Link className="link" to="/spaceCreator">
                             <ButtonWrapper>
                                 <ButtonStyled>Add to space</ButtonStyled>
                             </ButtonWrapper>

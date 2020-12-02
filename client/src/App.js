@@ -1,13 +1,14 @@
 import styled from 'styled-components/macro'
+import usePlants from './hooks/usePlants'
+import useSpaces from './hooks/useSpaces'
+import { Switch, Route, useHistory } from 'react-router-dom'
 import PageHeader from './components/PageHeader'
 import PlantsOverview from './components/PlantsOverview'
 import SearchField from './components/SearchField'
 import PlantFields from './components/PlantFields'
-import usePlants from './hooks/usePlants'
-import { Switch, Route, useHistory } from 'react-router-dom'
 import SpaceCreator from './components/SpaceCreator'
+import SpaceDetails from './components/SpaceDetails'
 import NewSpace from './components/NewSpace'
-import { useState } from 'react'
 
 function App() {
     const {
@@ -19,6 +20,15 @@ function App() {
         isLoaded,
     } = usePlants()
 
+    const {
+        submitDisabled,
+        submitHandler,
+        updateTitle,
+        spaceTitles,
+        handleClick,
+        spaceDetails,
+    } = useSpaces()
+
     const history = useHistory()
 
     function updateUrl() {
@@ -29,21 +39,8 @@ function App() {
         history.push('/plant')
     }
 
-    //space creator logic
-    const [submitDisabled, setSubmitDisabled] = useState(true)
-    const [spaceName, setSpaceName] = useState([])
-
-    function submitHandler(event) {
-        event.preventDefault()
-        setSubmitDisabled(true)
+    function backToSpaceCreatorPage() {
         history.push('/spaceCreator')
-    }
-
-    function activateButton(name) {
-        const str = name
-        const newSpaceName = str.split()
-        setSpaceName(newSpaceName)
-        setSubmitDisabled(false)
     }
 
     return (
@@ -72,14 +69,22 @@ function App() {
                 <Route path="/spaceCreator">
                     <SpaceCreator
                         backToPlantFields={backToPlantFields}
-                        spaceName={spaceName}
+                        spaceTitles={spaceTitles}
+                        handleClick={handleClick}
                     />
                 </Route>
                 <Route path="/newSpace">
                     <NewSpace
-                        activateButton={activateButton}
+                        updateTitle={updateTitle}
                         submitDisabled={submitDisabled}
                         submitHandler={submitHandler}
+                    />
+                </Route>
+                <Route path="/spaceDetails">
+                    <SpaceDetails
+                        spaceDetails={spaceDetails}
+                        plant={plant}
+                        backToSpaceCreatorPage={backToSpaceCreatorPage}
                     />
                 </Route>
             </Switch>

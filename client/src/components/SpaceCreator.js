@@ -2,14 +2,18 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
 import { ReactComponent as Plus } from '../assets/plus.svg'
-import { ReactComponent as Logo } from '../assets/perma_logo.svg'
+import { ReactComponent as Banana } from '../assets/banana.svg'
 import { Link } from 'react-router-dom'
 
 SpaceCreator.propTypes = {
     backToPlantFields: PropTypes.func,
 }
 
-export default function SpaceCreator({ backToPlantFields, spaceName }) {
+export default function SpaceCreator({
+    backToPlantFields,
+    spaceTitles,
+    handleClick,
+}) {
     return (
         <BackgroundStyled>
             <SpaceCreatorContainer>
@@ -20,8 +24,11 @@ export default function SpaceCreator({ backToPlantFields, spaceName }) {
                 <h2>Choose a space</h2>
                 <>
                     <SpacesContainer>
-                        {spaceName.map((name, index) => (
-                            <SpaceWrapper key={index}>
+                        {spaceTitles.map((name, index) => (
+                            <SpaceWrapper
+                                key={index}
+                                onClick={() => handleClick(index)}
+                            >
                                 <SpaceIcon>
                                     <LogoStyled />
                                 </SpaceIcon>
@@ -36,36 +43,12 @@ export default function SpaceCreator({ backToPlantFields, spaceName }) {
                                 <h2>Create a new space</h2>
                             </SpaceWrapper>
                         </Link>
-                        {/* <SpaceWrapper>
-                            <SpaceIcon>
-                                <LogoStyled />
-                            </SpaceIcon>
-                            <h2>Vegetables</h2>
-                        </SpaceWrapper> */}
                     </SpacesContainer>
-
-                    <ButtonWrapper>
-                        <ButtonStyled>Add</ButtonStyled>
-                    </ButtonWrapper>
                 </>
             </SpaceCreatorContainer>
         </BackgroundStyled>
     )
 }
-
-const ButtonWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    margin-top: 5px;
-`
-const ButtonStyled = styled.button`
-    color: var(--white);
-    background-color: var(--darkGreen);
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    padding: 15px;
-`
 
 const BackgroundStyled = styled.div`
     background: var(--mediumGrey);
@@ -133,9 +116,8 @@ const SpaceIcon = styled(NewSpaceIcon)`
     border: none;
     background-color: var(--lightGreen);
 `
-const LogoStyled = styled(Logo)`
+const LogoStyled = styled(Banana)`
     width: 80%;
-    fill: var(--darkGreen);
 `
 
 const SpaceWrapper = styled.div`

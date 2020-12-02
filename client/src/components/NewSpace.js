@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro'
-import { ReactComponent as Logo } from '../assets/perma_logo.svg'
+import { ReactComponent as Banana } from '../assets/banana.svg'
 
 export default function NewSpace({
-    activateButton,
+    updateTitle,
     submitDisabled,
     submitHandler,
 }) {
@@ -10,16 +10,16 @@ export default function NewSpace({
         <BackgroundStyled>
             <NewSpaceContainer>
                 <SpaceImageWrapper>
-                    <LogoIcon />
+                    <BananaIcon />
                 </SpaceImageWrapper>
                 <SpaceNameInput>
                     <input
-                        onChange={(event) => activateButton(event.target.value)}
-                        id="spacename"
+                        onChange={(event) => updateTitle(event.target.value)}
+                        id="spacetitle"
                         type="text"
                     />
                 </SpaceNameInput>
-                <label htmlFor="spacename">
+                <label htmlFor="spacetitle">
                     What would you like to name your space?
                 </label>
                 <ButtonWrapper>
@@ -41,9 +41,11 @@ const BackgroundStyled = styled.section`
     height: 100%;
     padding: 20px;
 `
-const LogoIcon = styled(Logo)`
-    fill: var(--darkGreen);
+
+const BananaIcon = styled(Banana)`
+    width: 60%;
 `
+
 const NewSpaceContainer = styled.form`
     display: flex;
     flex-direction: column;
@@ -59,9 +61,11 @@ const NewSpaceContainer = styled.form`
 
 const SpaceImageWrapper = styled.div`
     background: var(--lightGreen);
-    width: 50%;
-    height: auto;
+    width: 50vw;
+    height: 50vw;
     border-radius: 6px;
+    display: grid;
+    place-items: center;
 `
 
 const SpaceNameInput = styled.div`
