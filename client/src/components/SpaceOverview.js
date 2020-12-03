@@ -53,7 +53,7 @@ export default function SpaceOverview({
 }
 
 const BackgroundStyled = styled.div`
-    background: var(--mediumGrey);
+    background: var(--medium-grey);
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -76,7 +76,7 @@ const SpaceCreatorContainer = styled.section`
     }
 `
 const ArrowDown = styled(ArrowIcon)`
-    fill: var(--darkGreen);
+    fill: var(--dark-green);
     width: 20px;
     position: absolute;
     left: 20px;
@@ -94,13 +94,13 @@ const SpacesContainer = styled.div`
     overflow: auto;
 
     .link {
-        color: var(--darkGrey);
+        color: var(--dark-grey);
         text-decoration: none;
     }
 `
 
 const NewSpaceIcon = styled.div`
-    border: 1px solid var(--mediumGrey);
+    border: 1px solid var(--medium-grey);
     height: 100px;
     width: 100px;
     border-radius: 5px;
@@ -111,12 +111,12 @@ const NewSpaceIcon = styled.div`
 const PlusIcon = styled(Plus)`
     width: 50%;
     display: block;
-    fill: var(--darkGrey);
+    fill: var(--dark-grey);
 `
 
 const SpaceIcon = styled(NewSpaceIcon)`
     border: none;
-    background-color: var(--lightGreen);
+    background-color: var(--light-green);
 `
 const LogoStyled = styled(Banana)`
     width: 80%;

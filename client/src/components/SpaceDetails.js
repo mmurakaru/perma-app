@@ -53,7 +53,7 @@ const PlantsWrapper = styled.div`
 `
 
 const Plant = styled.div`
-    border: 0.2px solid var(--mediumGrey);
+    border: 0.2px solid var(--medium-grey);
     border-radius: 6px;
     padding: 5px 0 5px;
     display: flex;
@@ -86,7 +86,7 @@ const PlantImage = styled.img`
 `
 
 const BackgroundStyled = styled.div`
-    background: var(--mediumGreen);
+    background: var(--medium-green);
     width: 100%;
     height: 100%;
     padding-top: 150px;
@@ -119,7 +119,7 @@ const SpaceIcon = styled.div`
     display: grid;
     place-items: center;
     border: none;
-    background-color: var(--lightGreen);
+    background-color: var(--light-green);
 `
 const LogoStyled = styled(Banana)`
     width: 80%;

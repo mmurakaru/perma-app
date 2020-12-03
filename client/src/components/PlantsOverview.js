@@ -31,7 +31,7 @@ const PlantThumbnail = styled.section`
         width: 156px;
         object-fit: cover;
         border-radius: 5px;
-        background: var(--darkGrey);
+        background: var(--dark-grey);
         background-image: url(${logo});
         background-repeat: no-repeat;
     }
@@ -50,5 +50,5 @@ const ThumbnailWrapper = styled.div`
 
 const ErrorMsgStyled = styled.h2`
     position: absolute;
-    color: var(--mediumGreen);
+    color: var(--medium-green);
 `

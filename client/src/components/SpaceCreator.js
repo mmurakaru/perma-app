@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { ReactComponent as Banana } from '../assets/banana.svg'
 
 SpaceCreator.propTypes = {
-    updateTitle: PropTypes.func,
+    updateTitle: PropTypes.func.isRequired,
     submitDisabled: PropTypes.bool,
-    submitHandler: PropTypes.func,
+    submitHandler: PropTypes.func.isRequired,
 }
 
 export default function SpaceCreator({
@@ -43,7 +43,7 @@ export default function SpaceCreator({
 }
 
 const BackgroundStyled = styled.section`
-    background: var(--lightGrey);
+    background: var(--light-grey);
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -67,7 +67,7 @@ const NewSpaceContainer = styled.form`
 `
 
 const SpaceImageWrapper = styled.div`
-    background: var(--lightGreen);
+    background: var(--light-green);
     width: 50vw;
     height: 50vw;
     border-radius: 6px;
@@ -76,7 +76,7 @@ const SpaceImageWrapper = styled.div`
 `
 
 const SpaceNameInput = styled.div`
-    border-bottom: 1px solid var(--mediumGrey);
+    border-bottom: 1px solid var(--medium-grey);
     width: 80%;
     margin-bottom: 5px;
 
@@ -87,8 +87,8 @@ const SpaceNameInput = styled.div`
         height: 50px;
         margin-top: 5px;
         padding-left: 10px;
-        background: var(--lightGrey);
-        color: var(--darkGrey);
+        background: var(--light-grey);
+        color: var(--dark-grey);
         border: 0px;
     }
 
@@ -104,7 +104,7 @@ const ButtonWrapper = styled.div`
 `
 const ButtonStyled = styled.button`
     color: var(--white);
-    background-color: var(--darkGreen);
+    background-color: var(--dark-green);
     border: none;
     border-radius: 5px;
     width: 100%;

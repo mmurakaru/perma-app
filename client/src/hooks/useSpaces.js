@@ -8,8 +8,6 @@ export default function useSpaces() {
     const [spaceTitles, setSpaceTitles] = useState([])
     const [spaceDetails, setSpaceDetails] = useState([])
 
-    console.log(spaceTitles)
-
     return {
         submitDisabled,
         submitHandler,
