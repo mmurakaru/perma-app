@@ -15,9 +15,8 @@ describe('SpaceDetails', () => {
         expect(container.firstChild).toMatchSnapshot()
     })
 
-    const onClickMock = jest.fn()
-
     it('calls onClick', () => {
+        const onClickMock = jest.fn()
         const { getByTestId } = render(
             <SpaceDetails
                 switchToSpaceOverview={onClickMock}
