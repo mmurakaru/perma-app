@@ -6,7 +6,7 @@ exports[`Overview renders correctly 1`] = `
   width: 156px;
   object-fit: cover;
   border-radius: 5px;
-  background: var(--darkGrey);
+  background: var(--dark-grey);
   background-image: url(perma_logo.svg);
   background-repeat: no-repeat;
 }

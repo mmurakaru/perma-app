@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 export default function usePlants() {
     const [plants, setPlants] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
-    const [plant, setPlant] = useState({})
+    const [plant, setPlant] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
     const filteredPlants = filterPlants(searchTerm)
     const history = useHistory()

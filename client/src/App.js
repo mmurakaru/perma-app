@@ -9,7 +9,7 @@ import PlantFields from './components/PlantFields'
 import SpaceOverview from './components/SpaceOverview'
 import SpaceDetails from './components/SpaceDetails'
 import SpaceCreator from './components/SpaceCreator'
-
+import { useState } from 'react'
 function App() {
     const {
         plants,
@@ -24,12 +24,24 @@ function App() {
         submitDisabled,
         submitHandler,
         updateTitle,
-        spaceTitles,
-        spaceDetails,
-        updateSpaceDetails,
+        spaces,
+        spacePlants,
+        setSpacePlants,
+        space,
+        setSpace,
     } = useSpaces()
 
     const history = useHistory()
+
+    function updateSpaceDetails(spaceIndex) {
+        const targetSpace = spaces
+            .find((_, index) => index === spaceIndex)
+            .toString()
+
+        setSpacePlants([plant, ...spacePlants])
+        setSpace({ id: spaceIndex, title: targetSpace, plants: spacePlants })
+        history.push('/spaceDetails')
+    }
 
     function switchToOverview() {
         history.push('/')
@@ -74,7 +86,7 @@ function App() {
                 <Route path="/SpaceOverview">
                     <SpaceOverview
                         switchToPlantFields={switchToPlantFields}
-                        spaceTitles={spaceTitles}
+                        spaces={spaces}
                         updateSpaceDetails={updateSpaceDetails}
                         switchToSpaceCreator={switchToSpaceCreator}
                     />
@@ -88,8 +100,7 @@ function App() {
                 </Route>
                 <Route path="/SpaceDetails">
                     <SpaceDetails
-                        spaceDetails={spaceDetails}
-                        plant={plant}
+                        space={space}
                         switchToSpaceOverview={switchToSpaceOverview}
                     />
                 </Route>

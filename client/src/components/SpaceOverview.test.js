@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event'
 describe('SpaceOverview', () => {
     it('renders correctly', () => {
         const { container } = render(
-            <SpaceOverview spaceTitles={['Vegetables', 'Fruits']} />
+            <SpaceOverview spaces={['Vegetables', 'Fruits']} />
         )
         expect(container.firstChild).toMatchSnapshot()
     })
@@ -16,7 +16,7 @@ describe('SpaceOverview', () => {
         const { getByTestId } = render(
             <SpaceOverview
                 switchToPlantFields={onClickMock}
-                spaceTitles={['Vegetables', 'Fruits']}
+                spaces={['Vegetables', 'Fruits']}
             />
         )
         userEvent.click(getByTestId('ArrowDown'), 'Coconut')

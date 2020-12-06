@@ -6,9 +6,20 @@ describe('SpaceDetails', () => {
     it('renders correctly', () => {
         const { container } = render(
             <SpaceDetails
-                plant={{
-                    image_url:
-                        'https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed',
+                space={{
+                    title: 'Vegetables',
+                    plants: [
+                        {
+                            image_url:
+                                'https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed',
+                            common_name: 'Coconut',
+                        },
+                        {
+                            image_url:
+                                'https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed',
+                            common_name: 'Coconut',
+                        },
+                    ],
                 }}
             />
         )
@@ -19,11 +30,22 @@ describe('SpaceDetails', () => {
         const onClickMock = jest.fn()
         const { getByTestId } = render(
             <SpaceDetails
-                switchToSpaceOverview={onClickMock}
-                plant={{
-                    image_url:
-                        'https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed',
+                space={{
+                    title: 'Vegetables',
+                    plants: [
+                        {
+                            image_url:
+                                'https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed',
+                            common_name: 'Coconut',
+                        },
+                        {
+                            image_url:
+                                'https://bs.floristic.org/image/o/63073d2fbf45b90701279405ecc2eec0272906ed',
+                            common_name: 'Coconut',
+                        },
+                    ],
                 }}
+                switchToSpaceOverview={onClickMock}
             />
         )
         userEvent.click(getByTestId('ArrowDown'), 'Coconut')

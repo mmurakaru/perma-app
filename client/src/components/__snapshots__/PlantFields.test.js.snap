@@ -15,7 +15,7 @@ exports[`PlantFields renders correctly 1`] = `
 
 .c10 {
   color: var(--white);
-  background-color: var(--darkGreen);
+  background-color: var(--dark-green);
   border: none;
   border-radius: 5px;
   width: 100%;
@@ -23,8 +23,7 @@ exports[`PlantFields renders correctly 1`] = `
 }
 
 .c0 {
-  background: var(--mediumGreen);
-  width: 100%;
+  background: var(--medium-grey);
   height: 100%;
   padding: 20px;
 }
@@ -34,19 +33,18 @@ exports[`PlantFields renders correctly 1`] = `
   box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
   padding: 20px;
   background-color: var(--white);
-  width: 100%;
   overflow: none;
   margin-top: 50px;
 }
 
 .c1 .link {
-  color: var(--darkGrey);
+  color: var(--dark-grey);
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .c2 {
-  fill: var(--white);
+  fill: var(--dark-green);
   width: 20px;
   position: absolute;
   left: 20px;
@@ -74,7 +72,7 @@ exports[`PlantFields renders correctly 1`] = `
   object-fit: cover;
   border-radius: 5px;
   margin-bottom: 5px;
-  background: var(--darkGrey);
+  background: var(--dark-grey);
   background-image: url(perma_logo.svg);
   background-repeat: no-repeat;
 }
@@ -82,7 +80,7 @@ exports[`PlantFields renders correctly 1`] = `
 .c4 {
   max-height: 50vh;
   overflow-y: auto;
-  border-top: 0.5px solid var(--lightGrey);
+  border-top: 0.5px solid var(--light-grey);
 }
 
 .c5 {
@@ -93,7 +91,7 @@ exports[`PlantFields renders correctly 1`] = `
 
 .c6 {
   font-weight: 600;
-  color: var(--darkGrey);
+  color: var(--dark-grey);
   line-height: 1.333;
   font-size: 75%;
   margin-top: 20px;
@@ -106,7 +104,7 @@ exports[`PlantFields renders correctly 1`] = `
 
 .c8 {
   font-weight: 400;
-  color: var(--darkGrey);
+  color: var(--dark-grey);
   line-height: 1.333;
   font-size: 75%;
   margin-top: 40px;

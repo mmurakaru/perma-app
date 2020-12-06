@@ -5,21 +5,24 @@ export default function useSpaces() {
     const history = useHistory()
     const [submitDisabled, setSubmitDisabled] = useState(true)
     const [spaceTitle, setSpaceTitle] = useState('')
-    const [spaceTitles, setSpaceTitles] = useState([])
-    const [spaceDetails, setSpaceDetails] = useState([])
+    const [spaces, setSpaces] = useState([])
+    const [spacePlants, setSpacePlants] = useState([])
+    const [space, setSpace] = useState({ id: null, name: '', plants: [] })
 
     return {
         submitDisabled,
         submitHandler,
         updateTitle,
-        spaceTitles,
-        spaceDetails,
-        updateSpaceDetails,
+        spaces,
+        spacePlants,
+        setSpacePlants,
+        space,
+        setSpace,
     }
 
     function submitHandler(event) {
         event.preventDefault()
-        setSpaceTitles([spaceTitle, ...spaceTitles])
+        setSpaces([spaceTitle, ...spaces])
         setSubmitDisabled(true)
         history.push('/spaceOverview')
     }
@@ -27,11 +30,5 @@ export default function useSpaces() {
     function updateTitle(title) {
         setSpaceTitle(title.split())
         setSubmitDisabled(false)
-    }
-
-    function updateSpaceDetails(spaceIndex) {
-        const space = spaceTitles.find((_, index) => index === spaceIndex)
-        setSpaceDetails(space)
-        history.push('/spaceDetails')
     }
 }

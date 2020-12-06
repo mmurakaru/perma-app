@@ -2,18 +2,18 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
 import { ReactComponent as Plus } from '../assets/plus.svg'
-import { ReactComponent as Banana } from '../assets/banana.svg'
+import { ReactComponent as Sunflower } from '../assets/sunflower.svg'
 
 SpaceOverview.propTypes = {
-    backToPlantFields: PropTypes.func,
-    spaceTitles: PropTypes.array,
+    switchToPlantFields: PropTypes.func,
+    spaces: PropTypes.array,
     updateSpaceDetails: PropTypes.func,
     switchToSpaceCreator: PropTypes.func,
 }
 
 export default function SpaceOverview({
     switchToPlantFields,
-    spaceTitles,
+    spaces,
     updateSpaceDetails,
     switchToSpaceCreator,
 }) {
@@ -27,7 +27,7 @@ export default function SpaceOverview({
                 <h2>Choose a space</h2>
                 <>
                     <SpacesContainer>
-                        {spaceTitles.map((title, index) => (
+                        {spaces.map((title, index) => (
                             <SpaceWrapper
                                 key={index}
                                 onClick={() => updateSpaceDetails(index)}
@@ -118,7 +118,7 @@ const SpaceIcon = styled(NewSpaceIcon)`
     border: none;
     background-color: var(--light-green);
 `
-const LogoStyled = styled(Banana)`
+const LogoStyled = styled(Sunflower)`
     width: 80%;
 `
 

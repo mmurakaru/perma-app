@@ -2,7 +2,7 @@
 
 exports[`SpaceCreator renders correctly 1`] = `
 .c0 {
-  background: var(--lightGrey);
+  background: var(--light-grey);
   width: 100%;
   height: 100%;
   padding: 20px;
@@ -34,7 +34,7 @@ exports[`SpaceCreator renders correctly 1`] = `
 }
 
 .c2 {
-  background: var(--lightGreen);
+  background: var(--light-green);
   width: 50vw;
   height: 50vw;
   border-radius: 6px;
@@ -43,7 +43,7 @@ exports[`SpaceCreator renders correctly 1`] = `
 }
 
 .c4 {
-  border-bottom: 1px solid var(--mediumGrey);
+  border-bottom: 1px solid var(--medium-grey);
   width: 80%;
   margin-bottom: 5px;
 }
@@ -55,8 +55,8 @@ exports[`SpaceCreator renders correctly 1`] = `
   height: 50px;
   margin-top: 5px;
   padding-left: 10px;
-  background: var(--lightGrey);
-  color: var(--darkGrey);
+  background: var(--light-grey);
+  color: var(--dark-grey);
   border: 0px;
 }
 
@@ -79,7 +79,7 @@ exports[`SpaceCreator renders correctly 1`] = `
 
 .c6 {
   color: var(--white);
-  background-color: var(--darkGreen);
+  background-color: var(--dark-green);
   border: none;
   border-radius: 5px;
   width: 100%;
@@ -98,7 +98,7 @@ exports[`SpaceCreator renders correctly 1`] = `
       <svg
         class="c3"
       >
-        banana.svg
+        sunflower.svg
       </svg>
     </div>
     <div

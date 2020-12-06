@@ -1,19 +1,15 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { v4 as uuidv4 } from 'uuid'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
-import { ReactComponent as Banana } from '../assets/banana.svg'
+import { ReactComponent as Sunflower } from '../assets/sunflower.svg'
 
 SpaceDetails.propTypes = {
-    plant: PropTypes.object,
-    spaceDetails: PropTypes.array,
+    space: PropTypes.object,
     switchToSpaceOverview: PropTypes.func,
 }
 
-export default function SpaceDetails({
-    spaceDetails,
-    plant,
-    switchToSpaceOverview,
-}) {
+export default function SpaceDetails({ space, switchToSpaceOverview }) {
     let today = new Date()
     const dd = String(today.getDate()).padStart(2, '0')
     const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
@@ -26,30 +22,32 @@ export default function SpaceDetails({
                 data-testid="ArrowDown"
                 onClick={switchToSpaceOverview}
             />
-            <DetailsConainer>
+            <DetailsContainer>
                 <SpaceWrapper>
                     <SpaceIcon>
                         <LogoStyled />
                     </SpaceIcon>
-                    <h2>{spaceDetails}</h2>
+                    <h2>{space.title}</h2>
                 </SpaceWrapper>
                 <PlantsWrapper>
-                    <Plant>
-                        <PlantImage src={plant.image_url} alt="" />
-                        <PlantInfo>
-                            <h2>{plant.common_name}</h2>
-                            <span>{today}</span>
-                        </PlantInfo>
-                    </Plant>
+                    {space.plants.map((plant) => (
+                        <Plant key={uuidv4()}>
+                            <PlantImage src={plant.image_url} alt="" />
+                            <PlantInfo>
+                                <h2>{plant.common_name}</h2>
+                                <span>{today}</span>
+                            </PlantInfo>
+                        </Plant>
+                    ))}
                 </PlantsWrapper>
-            </DetailsConainer>
+            </DetailsContainer>
         </BackgroundStyled>
     )
 }
 
 const PlantsWrapper = styled.div`
-    margin-top: 60px;
-    height: 80px;
+    margin: 60px 0 60px;
+    overflow: auto;
 `
 
 const Plant = styled.div`
@@ -59,6 +57,7 @@ const Plant = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-top: 5px;
 `
 
 const PlantInfo = styled.div`
@@ -100,10 +99,9 @@ const ArrowDown = styled(ArrowIcon)`
     top: 20px;
 `
 
-const DetailsConainer = styled.section`
+const DetailsContainer = styled.section`
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;
     background-color: var(--white);
     width: 100%;
@@ -121,7 +119,7 @@ const SpaceIcon = styled.div`
     border: none;
     background-color: var(--light-green);
 `
-const LogoStyled = styled(Banana)`
+const LogoStyled = styled(Sunflower)`
     width: 80%;
 `
 

@@ -3,9 +3,12 @@ import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 describe('PlantFields', () => {
+    const testFunction = jest.fn()
     it('renders correctly', () => {
         const { container } = render(
             <PlantFields
+                switchToOverview={testFunction}
+                switchToSpaceOverview={testFunction}
                 plant={{
                     id: 183086,
                     common_name: 'European mountain ash',
@@ -42,7 +45,10 @@ describe('PlantFields', () => {
 
     it('calls onClick', () => {
         const { getByTestId } = render(
-            <PlantFields switchToOverview={onClickMock} />
+            <PlantFields
+                switchToSpaceOverview={testFunction}
+                switchToOverview={onClickMock}
+            />
         )
         userEvent.click(getByTestId('ArrowDown'), 'Coconut')
         expect(onClickMock).toHaveBeenCalled()

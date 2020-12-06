@@ -1,5 +1,5 @@
 SpaceOverview example:
 
 ```js
-<SpaceOverview spaceTitles={['Vegetables', 'Fruits']} />
+<SpaceOverview spaces={['Vegetables', 'Fruits']} />
 ```

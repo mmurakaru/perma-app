@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import { ReactComponent as Banana } from '../assets/banana.svg'
+import { ReactComponent as Sunflower } from '../assets/sunflower.svg'
 
 SpaceCreator.propTypes = {
     updateTitle: PropTypes.func.isRequired,
@@ -17,7 +17,7 @@ export default function SpaceCreator({
         <BackgroundStyled>
             <NewSpaceContainer>
                 <SpaceImageWrapper>
-                    <BananaIcon />
+                    <SunflowerIcon />
                 </SpaceImageWrapper>
                 <SpaceNameInput>
                     <input
@@ -49,7 +49,7 @@ const BackgroundStyled = styled.section`
     padding: 20px;
 `
 
-const BananaIcon = styled(Banana)`
+const SunflowerIcon = styled(Sunflower)`
     width: 60%;
 `
 
