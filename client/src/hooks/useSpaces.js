@@ -24,7 +24,7 @@ export default function useSpaces() {
         event.preventDefault()
         setSpaces([spaceTitle, ...spaces])
         setSubmitDisabled(true)
-        history.push('/spaceOverview')
+        history.goBack()
     }
 
     function updateTitle(title) {

@@ -6,10 +6,11 @@ import PageHeader from './components/PageHeader'
 import PlantsOverview from './components/PlantsOverview'
 import SearchField from './components/SearchField'
 import PlantFields from './components/PlantFields'
-import SpaceOverview from './components/SpaceOverview'
+import SpaceOverview from './components/SpacesOverview'
 import SpaceDetails from './components/SpaceDetails'
 import SpaceCreator from './components/SpaceCreator'
-import { useState } from 'react'
+import Spaces from './components/Spaces'
+
 function App() {
     const {
         plants,
@@ -52,7 +53,7 @@ function App() {
     }
 
     function switchToSpaceOverview() {
-        history.push('/SpaceOverview')
+        history.push('/SpacesOverview')
     }
 
     function switchToSpaceCreator() {
@@ -63,8 +64,8 @@ function App() {
         <AppStyled>
             <Switch>
                 <Route exact path="/">
-                    <OverviewPage>
-                        <PageHeader />
+                    <PageContainer>
+                        <PageHeader title={'Overview'} />
                         <SearchField
                             searchTerm={searchTerm}
                             onType={updateSearchTerm}
@@ -73,7 +74,7 @@ function App() {
                             plants={plants}
                             handleClick={showPlantDetails}
                         />
-                    </OverviewPage>
+                    </PageContainer>
                 </Route>
                 <Route path="/PlantFields">
                     <PlantFields
@@ -83,7 +84,7 @@ function App() {
                         switchToSpaceOverview={switchToSpaceOverview}
                     />
                 </Route>
-                <Route path="/SpaceOverview">
+                <Route path="/SpacesOverview">
                     <SpaceOverview
                         switchToPlantFields={switchToPlantFields}
                         spaces={spaces}
@@ -104,6 +105,16 @@ function App() {
                         switchToSpaceOverview={switchToSpaceOverview}
                     />
                 </Route>
+                <Route path="/Spaces">
+                    <PageContainer>
+                        <PageHeader title={'Spaces'} />
+                        <Spaces
+                            spaces={spaces}
+                            updateSpaceDetails={updateSpaceDetails}
+                            switchToSpaceCreator={switchToSpaceCreator}
+                        />
+                    </PageContainer>
+                </Route>
             </Switch>
         </AppStyled>
     )
@@ -114,6 +125,6 @@ export default App
 const AppStyled = styled.div`
     height: 100vh;
 `
-const OverviewPage = styled.div`
+const PageContainer = styled.div`
     padding: 20px;
 `

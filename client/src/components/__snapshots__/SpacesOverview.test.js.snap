@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SpaceOverview renders correctly 1`] = `
+exports[`SpacesOverview renders correctly 1`] = `
 .c0 {
   background: var(--medium-grey);
   width: 100%;

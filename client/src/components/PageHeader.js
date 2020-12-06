@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
 
-export default function PageHeader() {
+export default function PageHeader({ title }) {
     return (
         <HeaderWrapper>
-            <h1>Overview</h1>
+            <h1>{title}</h1>
         </HeaderWrapper>
     )
 }

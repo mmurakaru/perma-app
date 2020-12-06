@@ -18,8 +18,6 @@ exports[`PageHeader renders correctly 1`] = `
 <div
   class="c0"
 >
-  <h1>
-    Overview
-  </h1>
+  <h1 />
 </div>
 `;
