@@ -1,11 +1,11 @@
-import SpaceOverview from './SpaceOverview'
+import SpacesOverview from './SpacesOverview'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-describe('SpaceOverview', () => {
+describe('SpacesOverview', () => {
     it('renders correctly', () => {
         const { container } = render(
-            <SpaceOverview spaces={['Vegetables', 'Fruits']} />
+            <SpacesOverview spaces={['Vegetables', 'Fruits']} />
         )
         expect(container.firstChild).toMatchSnapshot()
     })
@@ -14,7 +14,7 @@ describe('SpaceOverview', () => {
 
     it('calls onClick', () => {
         const { getByTestId } = render(
-            <SpaceOverview
+            <SpacesOverview
                 switchToPlantFields={onClickMock}
                 spaces={['Vegetables', 'Fruits']}
             />

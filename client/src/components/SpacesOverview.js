@@ -4,14 +4,14 @@ import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
 import { ReactComponent as Plus } from '../assets/plus.svg'
 import { ReactComponent as Sunflower } from '../assets/sunflower.svg'
 
-SpaceOverview.propTypes = {
+SpacesOverview.propTypes = {
     switchToPlantFields: PropTypes.func,
     spaces: PropTypes.array,
     updateSpaceDetails: PropTypes.func,
     switchToSpaceCreator: PropTypes.func,
 }
 
-export default function SpaceOverview({
+export default function SpacesOverview({
     switchToPlantFields,
     spaces,
     updateSpaceDetails,
@@ -19,7 +19,7 @@ export default function SpaceOverview({
 }) {
     return (
         <BackgroundStyled>
-            <SpaceCreatorContainer>
+            <SpacesCreatorContainer>
                 <ArrowDown
                     data-testid="ArrowDown"
                     onClick={switchToPlantFields}
@@ -47,7 +47,7 @@ export default function SpaceOverview({
                         </SpaceWrapper>
                     </SpacesContainer>
                 </>
-            </SpaceCreatorContainer>
+            </SpacesCreatorContainer>
         </BackgroundStyled>
     )
 }
@@ -59,7 +59,7 @@ const BackgroundStyled = styled.div`
     padding: 20px;
 `
 
-const SpaceCreatorContainer = styled.section`
+const SpacesCreatorContainer = styled.section`
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;

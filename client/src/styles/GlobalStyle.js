@@ -32,6 +32,7 @@ h1 {
     font-weight: 600;
     font-size: 1.4rem;
     margin: 0;
+    color: var(--dark-grey);
 }
 
 h2 {
