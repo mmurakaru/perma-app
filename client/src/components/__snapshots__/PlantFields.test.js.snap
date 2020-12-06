@@ -1,9 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PlantFields renders correctly 1`] = `
-.c0 {
-  background: var(--mediumGreen);
+.c9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.c10 {
+  color: var(--white);
+  background-color: var(--dark-green);
+  border: none;
+  border-radius: 5px;
   width: 100%;
+  padding: 15px;
+}
+
+.c0 {
+  background: var(--medium-grey);
   height: 100%;
   padding: 20px;
 }
@@ -13,13 +33,18 @@ exports[`PlantFields renders correctly 1`] = `
   box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
   padding: 20px;
   background-color: var(--white);
-  width: 100%;
   overflow: none;
   margin-top: 50px;
 }
 
+.c1 .link {
+  color: var(--dark-grey);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .c2 {
-  fill: var(--white);
+  fill: var(--dark-green);
   width: 20px;
   position: absolute;
   left: 20px;
@@ -47,15 +72,15 @@ exports[`PlantFields renders correctly 1`] = `
   object-fit: cover;
   border-radius: 5px;
   margin-bottom: 5px;
-  background: #4a4a4a;
+  background: var(--dark-grey);
   background-image: url(perma_logo.svg);
   background-repeat: no-repeat;
 }
 
 .c4 {
-  max-height: 500px;
+  max-height: 50vh;
   overflow-y: auto;
-  border-top: 0.5px solid #e8e8e8;
+  border-top: 0.5px solid var(--light-grey);
 }
 
 .c5 {
@@ -66,8 +91,7 @@ exports[`PlantFields renders correctly 1`] = `
 
 .c6 {
   font-weight: 600;
-  color: #4a4a4a;
-  opacity: 50%;
+  color: var(--dark-grey);
   line-height: 1.333;
   font-size: 75%;
   margin-top: 20px;
@@ -75,17 +99,12 @@ exports[`PlantFields renders correctly 1`] = `
 }
 
 .c7 {
-  font-weight: 600;
-  color: #4a4a4a;
-  line-height: 1.333;
-  font-size: 75%;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  opacity: 50%;
 }
 
 .c8 {
   font-weight: 400;
-  color: #4a4a4a;
+  color: var(--dark-grey);
   line-height: 1.333;
   font-size: 75%;
   margin-top: 40px;
@@ -122,94 +141,94 @@ exports[`PlantFields renders correctly 1`] = `
         class="c5"
       >
         <span
-          class="c6"
+          class="c6 c7"
         >
           Family
         </span>
         <span
-          class="c7"
+          class="c6"
         >
           Rosaceae
         </span>
         <span
-          class="c6"
+          class="c6 c7"
         >
           Average-height (cm)
         </span>
         <span
-          class="c7"
+          class="c6"
         >
           300
         </span>
         <span
-          class="c6"
+          class="c6 c7"
         >
           Minimum-temperature (deg-c)
         </span>
         <span
-          class="c7"
+          class="c6"
         >
           -36
         </span>
         <span
-          class="c6"
+          class="c6 c7"
         >
           Soil texture 
           <br />
            (0)clay) - (10)rock
         </span>
         <span
-          class="c7"
+          class="c6"
         >
           4
         </span>
         <span
-          class="c6"
+          class="c6 c7"
         >
           Edible
         </span>
         <span
-          class="c7"
+          class="c6"
         >
           no
         </span>
         <span
-          class="c6"
+          class="c6 c7"
         >
           Light (1-10)
         </span>
         <span
-          class="c7"
+          class="c6"
         >
           7
         </span>
         <span
-          class="c6"
+          class="c6 c7"
         >
           Sowing
         </span>
         <span
-          class="c7"
+          class="c6"
         >
           Lorem ipsum
         </span>
         <span
-          class="c6"
+          class="c6 c7"
         >
           Row spacing
         </span>
         <span
-          class="c7"
+          class="c6"
         >
           30
         </span>
         <span
-          class="c6"
+          class="c6 c7"
         >
           Days to harvest
         </span>
         <span
-          class="c7"
+          class="c6"
         >
           60
         </span>
@@ -219,6 +238,15 @@ exports[`PlantFields renders correctly 1`] = `
       >
         Lorem ipsum
       </p>
+    </div>
+    <div
+      class="c9"
+    >
+      <button
+        class="c10"
+      >
+        Add to space
+      </button>
     </div>
   </section>
 </div>

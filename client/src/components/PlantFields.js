@@ -6,14 +6,20 @@ import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
 PlantFields.propTypes = {
     plant: PropTypes.object,
     isLoaded: PropTypes.bool,
-    backToOverview: PropTypes.func,
+    switchToOverview: PropTypes.func.isRequired,
+    switchToSpaceOverview: PropTypes.func.isRequired,
 }
 
-export default function PlantFields({ plant, isLoaded, backToOverview }) {
+export default function PlantFields({
+    plant,
+    isLoaded,
+    switchToOverview,
+    switchToSpaceOverview,
+}) {
     return (
         <BackgroundStyled>
             <PlantFieldsContainer>
-                <ArrowDown data-testid="ArrowDown" onClick={backToOverview} />
+                <ArrowDown data-testid="ArrowDown" onClick={switchToOverview} />
                 {isLoaded ? (
                     <>
                         <PlantThumbnail key={plant.id}>
@@ -49,6 +55,9 @@ export default function PlantFields({ plant, isLoaded, backToOverview }) {
                             </FieldsStyled>
                             <Text>{plant.growth.description}</Text>
                         </FieldsWrapper>
+                        <ButtonWrapper onClick={switchToSpaceOverview}>
+                            <ButtonStyled>Add to space</ButtonStyled>
+                        </ButtonWrapper>
                     </>
                 ) : (
                     <LoadingMsgStyled />
@@ -58,9 +67,22 @@ export default function PlantFields({ plant, isLoaded, backToOverview }) {
     )
 }
 
-const BackgroundStyled = styled.div`
-    background: var(--mediumGreen);
+const ButtonWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+`
+const ButtonStyled = styled.button`
+    color: var(--white);
+    background-color: var(--dark-green);
+    border: none;
+    border-radius: 5px;
     width: 100%;
+    padding: 15px;
+`
+
+const BackgroundStyled = styled.div`
+    background: var(--medium-grey);
     height: 100%;
     padding: 20px;
 `
@@ -70,12 +92,16 @@ const PlantFieldsContainer = styled.section`
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;
     background-color: var(--white);
-    width: 100%;
     overflow: none;
     margin-top: 50px;
+
+    .link {
+        color: var(--dark-grey);
+        text-decoration: none;
+    }
 `
 const ArrowDown = styled(ArrowIcon)`
-    fill: var(--white);
+    fill: var(--dark-green);
     width: 20px;
     position: absolute;
     left: 20px;
@@ -94,16 +120,16 @@ const PlantThumbnail = styled.section`
         object-fit: cover;
         border-radius: 5px;
         margin-bottom: 5px;
-        background: var(--darkGrey);
+        background: var(--dark-grey);
         background-image: url(${logo});
         background-repeat: no-repeat;
     }
 `
 
 const FieldsWrapper = styled.div`
-    max-height: 55vh;
+    max-height: 50vh;
     overflow-y: auto;
-    border-top: 0.5px solid var(--lightGrey);
+    border-top: 0.5px solid var(--light-grey);
 `
 
 const FieldsStyled = styled.div`
@@ -113,7 +139,7 @@ const FieldsStyled = styled.div`
 `
 const Data = styled.span`
     font-weight: 600;
-    color: var(--darkGrey);
+    color: var(--dark-grey);
     line-height: 1.333;
     font-size: 75%;
     margin-top: 20px;
@@ -124,7 +150,7 @@ const Field = styled(Data)`
 `
 const Text = styled.p`
     font-weight: 400;
-    color: var(--darkGrey);
+    color: var(--dark-grey);
     line-height: 1.333;
     font-size: 75%;
     margin-top: 40px;
@@ -133,7 +159,7 @@ const Text = styled.p`
 const LoadingMsgStyled = styled.img`
     width: 40px;
     height: 40px;
-    background-color: var(--mediumGreen);
+    background-color: var(--medium-green);
     border-radius: 100%;
     animation: scaleout 1s infinite ease-in-out;
 

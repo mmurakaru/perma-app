@@ -11,12 +11,12 @@ export default createGlobalStyle`
     font-size: 112.5%;
 
     --white: #F5F5F5;
-    --lightGrey: #E8E8E8;
-    --mediumGrey: #D6D6D6;
-    --darkGrey: #4A4A4A;
-    --lightGreen: #DCEDC8;
-    --mediumGreen: #AABB97;
-    --darkGreen: #003300;
+    --light-grey: #E8E8E8;
+    --medium-grey: #D6D6D6;
+    --dark-grey: #4A4A4A;
+    --light-green: #DCEDC8;
+    --medium-green: #AABB97;
+    --dark-green: #003300;
 }
 
 body {

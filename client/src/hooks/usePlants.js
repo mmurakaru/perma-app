@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 export default function usePlants() {
     const [plants, setPlants] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
-    const [plant, setPlant] = useState({})
+    const [plant, setPlant] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
     const filteredPlants = filterPlants(searchTerm)
     const history = useHistory()
@@ -17,7 +17,7 @@ export default function usePlants() {
     useEffect(() => {
         filteredPlants.length === 0 &&
             searchTerm.length > 0 &&
-            searchPlants(searchTerm)
+            searchPlants(searchTerm, token)
                 .then((results) => {
                     setPlants(results.data)
                 })
@@ -69,7 +69,7 @@ export default function usePlants() {
     }
 
     function showPlantDetails(id) {
-        history.push('/plant')
+        history.push('/PlantFields')
         setIsLoaded(false)
         setPlant(plants.find((plant) => plant.id === id))
         getFields(id, token)

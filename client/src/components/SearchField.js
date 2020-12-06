@@ -26,7 +26,7 @@ const SearchFieldWrapper = styled.div`
 
     input {
         margin-top: 5px;
-        border: 1px solid var(--mediumGrey);
+        border: 1px solid var(--medium-grey);
         border-radius: 5px;
         width: 100%;
         height: 40px;
@@ -36,10 +36,10 @@ const SearchFieldWrapper = styled.div`
 
     input:focus {
         outline: none;
-        border-color: var(--mediumGreen);
+        border-color: var(--medium-green);
     }
 
     input::placeholder {
-        color: var(--darkGrey);
+        color: var(--dark-grey);
     }
 `

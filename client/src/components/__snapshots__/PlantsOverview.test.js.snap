@@ -6,26 +6,20 @@ exports[`Overview renders correctly 1`] = `
   width: 156px;
   object-fit: cover;
   border-radius: 5px;
-  background: var(--darkGrey);
+  background: var(--dark-grey);
   background-image: url(perma_logo.svg);
   background-repeat: no-repeat;
 }
 
 .c0 {
   margin-top: 20px;
-  height: 600px;
+  height: 70vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: min-content;
   place-items: center;
   gap: 20px;
   overflow: auto;
-}
-
-.c0 .link {
-  color: var(--darkGrey);
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 <div
