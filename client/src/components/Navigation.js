@@ -23,17 +23,17 @@ export default function Navigation() {
 
 const NavigationContainer = styled.section`
     background-color: #cfd8c6;
+    bottom: 0;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    position: fixed;
-    bottom: 0;
+    display: flex;
+    fill: var(--white);
+    justify-content: space-evenly;
     height: 7%;
+    position: fixed;
+    padding: 10px 20px;
     width: 100%;
     max-width: 450px;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-evenly;
-    fill: var(--white);
 `
 const SpacesIcon = styled(Spaces)`
     width: 30px;
