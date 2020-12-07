@@ -10,6 +10,7 @@ import SpaceOverview from './components/SpacesOverview'
 import SpaceDetails from './components/SpaceDetails'
 import SpaceCreator from './components/SpaceCreator'
 import Spaces from './components/Spaces'
+import Navigation from './components/Navigation'
 
 function App() {
     const {
@@ -75,6 +76,7 @@ function App() {
                             handleClick={showPlantDetails}
                         />
                     </PageContainer>
+                    <Navigation />
                 </Route>
                 <Route path="/PlantFields">
                     <PlantFields
@@ -114,6 +116,7 @@ function App() {
                             switchToSpaceCreator={switchToSpaceCreator}
                         />
                     </PageContainer>
+                    <Navigation />
                 </Route>
             </Switch>
         </AppStyled>
