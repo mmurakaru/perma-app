@@ -1,12 +1,22 @@
 import styled from 'styled-components/macro'
 import { ReactComponent as Spaces } from '../assets/spaces.svg'
 import { ReactComponent as Overview } from '../assets/overview.svg'
+import { ReactComponent as Home } from '../assets/home.svg'
 import { NavLink } from 'react-router-dom'
 
 export default function Navigation() {
     return (
         <NavigationContainer>
-            <NavLink activeStyle={{ fill: 'var(--dark-green)' }} exact to="/">
+            <NavLink
+                exact
+                to="/"
+                activeStyle={{
+                    fill: 'var(--dark-green)',
+                }}
+            >
+                <HomeIcon />
+            </NavLink>
+            <NavLink activeStyle={{ fill: 'var(--dark-green)' }} to="/Overview">
                 <OverviewIcon />
             </NavLink>
             <NavLink
@@ -28,7 +38,7 @@ const NavigationContainer = styled.section`
     border-top-right-radius: 25px;
     display: flex;
     fill: var(--white);
-    justify-content: space-evenly;
+    justify-content: space-around;
     height: 7%;
     position: fixed;
     padding: 10px 20px;
@@ -36,8 +46,11 @@ const NavigationContainer = styled.section`
     max-width: 450px;
 `
 const SpacesIcon = styled(Spaces)`
-    width: 30px;
+    width: 25px;
 `
 const OverviewIcon = styled(Overview)`
-    width: 30px;
+    width: 25px;
+`
+const HomeIcon = styled(Home)`
+    width: 25px;
 `

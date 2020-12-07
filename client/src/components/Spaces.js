@@ -84,6 +84,7 @@ const LogoStyled = styled(Sunflower)`
 const SpaceWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    justify-self: start;
 
     h2 {
         margin: 3px 0;

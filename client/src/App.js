@@ -11,6 +11,7 @@ import SpaceDetails from './components/SpaceDetails'
 import SpaceCreator from './components/SpaceCreator'
 import Spaces from './components/Spaces'
 import Navigation from './components/Navigation'
+import Home from './components/Home'
 
 function App() {
     const {
@@ -45,8 +46,12 @@ function App() {
         history.push('/spaceDetails')
     }
 
+    function switchToPreviousPage() {
+        history.goBack()
+    }
+
     function switchToOverview() {
-        history.push('/')
+        history.push('/Overview')
     }
 
     function switchToPlantFields() {
@@ -65,6 +70,13 @@ function App() {
         <AppStyled>
             <Switch>
                 <Route exact path="/">
+                    <PageContainer>
+                        <PageHeader title={'Home'} />
+                        <Home space={space} />
+                    </PageContainer>
+                    <Navigation />
+                </Route>
+                <Route path="/Overview">
                     <PageContainer>
                         <PageHeader title={'Overview'} />
                         <SearchField
@@ -104,7 +116,7 @@ function App() {
                 <Route path="/SpaceDetails">
                     <SpaceDetails
                         space={space}
-                        switchToSpaceOverview={switchToSpaceOverview}
+                        switchToPreviousPage={switchToPreviousPage}
                     />
                 </Route>
                 <Route path="/Spaces">

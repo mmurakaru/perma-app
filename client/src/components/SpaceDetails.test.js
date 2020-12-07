@@ -45,7 +45,7 @@ describe('SpaceDetails', () => {
                         },
                     ],
                 }}
-                switchToSpaceOverview={onClickMock}
+                switchToPreviousPage={onClickMock}
             />
         )
         userEvent.click(getByTestId('ArrowDown'), 'Coconut')

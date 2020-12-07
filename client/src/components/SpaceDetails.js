@@ -6,10 +6,10 @@ import { ReactComponent as Sunflower } from '../assets/sunflower.svg'
 
 SpaceDetails.propTypes = {
     space: PropTypes.object,
-    switchToSpaceOverview: PropTypes.func,
+    switchToPreviousPage: PropTypes.func,
 }
 
-export default function SpaceDetails({ space, switchToSpaceOverview }) {
+export default function SpaceDetails({ space, switchToPreviousPage }) {
     let today = new Date()
     const dd = String(today.getDate()).padStart(2, '0')
     const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
@@ -18,10 +18,7 @@ export default function SpaceDetails({ space, switchToSpaceOverview }) {
 
     return (
         <BackgroundStyled>
-            <ArrowDown
-                data-testid="ArrowDown"
-                onClick={switchToSpaceOverview}
-            />
+            <ArrowDown data-testid="ArrowDown" onClick={switchToPreviousPage} />
             <DetailsContainer>
                 <SpaceWrapper>
                     <SpaceIcon>

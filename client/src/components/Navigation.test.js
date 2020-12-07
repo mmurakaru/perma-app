@@ -5,7 +5,7 @@ import 'jest-styled-components'
 
 describe('Navigation', () => {
     it('has links to all pages', () => {
-        const urls = ['/', '/Spaces']
+        const urls = ['/', '/Overview', '/Spaces']
 
         const { getAllByRole } = render(
             <Router>
