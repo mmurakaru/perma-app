@@ -76,6 +76,7 @@ function App() {
                             handleClick={showPlantDetails}
                         />
                     </PageContainer>
+                    <Navigation />
                 </Route>
                 <Route path="/PlantFields">
                     <PlantFields

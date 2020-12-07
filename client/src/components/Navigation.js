@@ -27,7 +27,7 @@ const NavigationContainer = styled.section`
     border-top-right-radius: 25px;
     position: fixed;
     bottom: 0;
-    height: 8%;
+    height: 7%;
     width: 100%;
     max-width: 450px;
     padding: 10px 20px;
