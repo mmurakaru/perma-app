@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation renders correctly 1`] = `
+.c0 {
+  background-color: #cfd8c6;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  position: fixed;
+  bottom: 0;
+  height: 8%;
+  width: 100%;
+  max-width: 450px;
+  padding: 10px 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  fill: var(--white);
+}
+
+.c2 {
+  width: 30px;
+}
+
+.c1 {
+  width: 30px;
+}
+
+<section
+  class="c0"
+>
+  <a
+    aria-current="page"
+    class="active"
+    href="/"
+    style="fill: var(--dark-green);"
+  >
+    <svg
+      class="c1"
+    >
+      overview.svg
+    </svg>
+  </a>
+  <a
+    href="/Spaces"
+  >
+    <svg
+      class="c2"
+    >
+      spaces.svg
+    </svg>
+  </a>
+</section>
+`;

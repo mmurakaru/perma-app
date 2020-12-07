@@ -1,0 +1,5 @@
+Navigation example:
+
+```js
+<Navigation />
+```

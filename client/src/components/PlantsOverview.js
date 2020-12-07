@@ -39,7 +39,7 @@ const PlantThumbnail = styled.section`
 
 const ThumbnailWrapper = styled.div`
     margin-top: 20px;
-    height: 70vh;
+    height: 71vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: min-content;
