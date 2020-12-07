@@ -44,10 +44,10 @@ const SpacesContainer = styled.div`
     margin-top: 50px;
     height: 65vh;
     display: grid;
+    gap: 10px 40px;
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: min-content;
     place-items: center;
-    gap: 20px;
     overflow: auto;
 
     h2 {

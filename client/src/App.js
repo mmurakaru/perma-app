@@ -36,13 +36,33 @@ function App() {
 
     const history = useHistory()
 
+    // const space = {plantIds: [id1, id2]}
+
+    // const spaces= {[space.name]: space}
+
+    // const addPlantsToSpace(spaceName, plantIds) {
+    //     const space = spaces[spaceName]
+    //     const newSpaces = {...spaces, [spaceName]: {...space, plantIds: space.plantIds.contact(plantIds)}}
+    //     setSpacePlants(newSpaces)
+    // }
+
+    // const addNewSpace(space) {
+    //     if (spaces[space.name]) {
+    //         setError('Space with this name already exists')
+    //         return
+    //     }
+    //     const newSpaces = {
+    //         ...spaces, [space.name]: space
+    //     }
+    //     setSpaces(newSpaces)
+    // }
+
     function updateSpaceDetails(spaceIndex) {
-        const targetSpace = spaces
+        const currentSpace = spaces
             .find((_, index) => index === spaceIndex)
             .toString()
-
+        setSpace({ id: spaceIndex, title: currentSpace, plants: spacePlants })
         setSpacePlants([plant, ...spacePlants])
-        setSpace({ id: spaceIndex, title: targetSpace, plants: spacePlants })
         history.push('/spaceDetails')
     }
 
