@@ -18,17 +18,17 @@ export default function useSpaces() {
         currentSpace,
         setCurrentSpace,
     }
-    //onsubmit
+
     function submitHandler(event) {
         event.preventDefault()
         setSpaces([
-            { id: uuidv4(), spaceTitle: spaceTitle, plants: [] },
+            { id: uuidv4(), spaceTitle: spaceTitle, plants: [], date: '' },
             ...spaces,
         ])
         setSubmitDisabled(true)
         history.goBack()
     }
-    //onchange
+
     function updateTitle(title) {
         setSpaceTitle(title.split())
         setSubmitDisabled(false)

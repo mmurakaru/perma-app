@@ -8,24 +8,44 @@ export default function Navigation() {
     return (
         <NavigationContainer>
             <NavLink
+                className="link"
                 exact
                 to="/"
                 activeStyle={{
                     fill: 'var(--dark-green)',
+                    color: 'var(--dark-green)',
                 }}
             >
-                <HomeIcon />
-            </NavLink>
-            <NavLink activeStyle={{ fill: 'var(--dark-green)' }} to="/Overview">
-                <OverviewIcon />
+                <LinkWrapper>
+                    <HomeIcon />
+                    <LinkText>Home</LinkText>
+                </LinkWrapper>
             </NavLink>
             <NavLink
+                className="link"
+                activeStyle={{
+                    fill: 'var(--dark-green)',
+                    color: 'var(--dark-green)',
+                }}
+                to="/Overview"
+            >
+                <LinkWrapper>
+                    <OverviewIcon />
+                    <LinkText>Add plant</LinkText>
+                </LinkWrapper>
+            </NavLink>
+            <NavLink
+                className="link"
                 to="/Spaces"
                 activeStyle={{
                     fill: 'var(--dark-green)',
+                    color: 'var(--dark-green)',
                 }}
             >
-                <SpacesIcon />
+                <LinkWrapper>
+                    <SpacesIcon />
+                    <LinkText>Spaces</LinkText>
+                </LinkWrapper>
             </NavLink>
         </NavigationContainer>
     )
@@ -34,16 +54,21 @@ export default function Navigation() {
 const NavigationContainer = styled.section`
     background-color: #cfd8c6;
     bottom: 0;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    /* border-top-left-radius: 25px;
+    border-top-right-radius: 25px; */
     display: flex;
     fill: var(--white);
     justify-content: space-around;
-    height: 7%;
+    height: 8%;
     position: fixed;
     padding: 10px 20px;
     width: 100%;
     max-width: 450px;
+
+    .link {
+        text-decoration: none;
+        color: var(--white);
+    }
 `
 const SpacesIcon = styled(Spaces)`
     width: 25px;
@@ -53,4 +78,13 @@ const OverviewIcon = styled(Overview)`
 `
 const HomeIcon = styled(Home)`
     width: 25px;
+`
+
+const LinkText = styled.span`
+    font-size: 8px;
+`
+const LinkWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `

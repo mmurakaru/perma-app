@@ -10,12 +10,6 @@ SpaceDetails.propTypes = {
 }
 
 export default function SpaceDetails({ space, switchToPreviousPage }) {
-    let today = new Date()
-    const dd = String(today.getDate()).padStart(2, '0')
-    const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-    const yyyy = today.getFullYear()
-    today = dd + '.' + mm + '.' + yyyy
-
     return (
         <BackgroundStyled>
             <ArrowDown data-testid="ArrowDown" onClick={switchToPreviousPage} />
@@ -32,7 +26,7 @@ export default function SpaceDetails({ space, switchToPreviousPage }) {
                             <PlantImage src={plant.image_url} alt="" />
                             <PlantInfo>
                                 <h2>{plant.common_name}</h2>
-                                <span>{today}</span>
+                                <span>{space.date}</span>
                             </PlantInfo>
                         </Plant>
                     ))}

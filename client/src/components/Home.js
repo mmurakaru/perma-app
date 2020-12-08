@@ -1,80 +1,42 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { v4 as uuidv4 } from 'uuid'
-import { ReactComponent as Add } from '../assets/add.svg'
 import { ReactComponent as Illustration } from '../assets/illustration.svg'
-import { Link } from 'react-router-dom'
 
 Home.propTypes = {
     space: PropTypes.object,
 }
 
-export default function Home({ spaces }) {
-    let today = new Date()
-    const dd = String(today.getDate()).padStart(2, '0')
-    const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-    const yyyy = today.getFullYear()
-    today = dd + '.' + mm + '.' + yyyy
-
+export default function Home({ space }) {
     return (
         <>
-            <HomeContainer>
-                <Link className="link" to="/Overview">
-                    <AddWrapper>
-                        <AddIcon />
-                        <h2>Add plant</h2>
-                    </AddWrapper>
-                </Link>
-                <IllustrationStyled />
-            </HomeContainer>
+            <IllustrationStyled />
             <PlantsWrapper>
-                {space.keys(obj).length > 0 ? (
+                {space !== undefined && <h2>Recently planted</h2>}
+                {space !== undefined &&
                     space.plants.map((plant) => (
                         <Plant key={uuidv4()}>
-                            <h2>Recently planted</h2>
                             <PlantImage src={plant.image_url} alt="" />
                             <PlantInfo>
                                 <h2>{plant.common_name}</h2>
-                                <span>{today}</span>
+                                <span>{space.date}</span>
                             </PlantInfo>
                         </Plant>
-                    ))
-                ) : (
-                    <h2>Hello</h2>
-                )}
+                    ))}
             </PlantsWrapper>
         </>
     )
 }
 
-const HomeContainer = styled.section`
-    display: flex;
-    justify-content: space-between;
-    margin-top: 60px;
-
-    .link {
-        text-decoration: none;
-        color: inherit;
-    }
-`
-
 const IllustrationStyled = styled(Illustration)`
-    width: 150px;
-`
-
-const AddIcon = styled(Add)`
-    width: 100px;
-    margin-bottom: 5px;
-`
-const AddWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 180px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
 `
 
 const PlantsWrapper = styled.div`
-    margin-top: 50px;
+    margin-top: 70%;
     overflow: auto;
 `
 
