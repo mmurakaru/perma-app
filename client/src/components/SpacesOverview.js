@@ -27,15 +27,15 @@ export default function SpacesOverview({
                 <h2>Choose a space</h2>
                 <>
                     <SpacesContainer>
-                        {spaces.map((title, index) => (
+                        {spaces.map(({ spaceTitle, id }) => (
                             <SpaceWrapper
-                                key={index}
-                                onClick={() => updateSpaceDetails(index)}
+                                key={id}
+                                onClick={() => updateSpaceDetails(id)}
                             >
                                 <SpaceIcon>
                                     <LogoStyled />
                                 </SpaceIcon>
-                                <h2>{title}</h2>
+                                <h2>{spaceTitle}</h2>
                             </SpaceWrapper>
                         ))}
 

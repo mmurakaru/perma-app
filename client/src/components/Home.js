@@ -9,7 +9,7 @@ Home.propTypes = {
     space: PropTypes.object,
 }
 
-export default function Home({ space }) {
+export default function Home({ spaces }) {
     let today = new Date()
     const dd = String(today.getDate()).padStart(2, '0')
     const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
@@ -28,16 +28,20 @@ export default function Home({ space }) {
                 <IllustrationStyled />
             </HomeContainer>
             <PlantsWrapper>
-                <h2>Recently planted</h2>
-                {space.plants.map((plant) => (
-                    <Plant key={uuidv4()}>
-                        <PlantImage src={plant.image_url} alt="" />
-                        <PlantInfo>
-                            <h2>{plant.common_name}</h2>
-                            <span>{today}</span>
-                        </PlantInfo>
-                    </Plant>
-                ))}
+                {space.keys(obj).length > 0 ? (
+                    space.plants.map((plant) => (
+                        <Plant key={uuidv4()}>
+                            <h2>Recently planted</h2>
+                            <PlantImage src={plant.image_url} alt="" />
+                            <PlantInfo>
+                                <h2>{plant.common_name}</h2>
+                                <span>{today}</span>
+                            </PlantInfo>
+                        </Plant>
+                    ))
+                ) : (
+                    <h2>Hello</h2>
+                )}
             </PlantsWrapper>
         </>
     )

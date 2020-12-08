@@ -24,7 +24,7 @@ export default function SpaceDetails({ space, switchToPreviousPage }) {
                     <SpaceIcon>
                         <LogoStyled />
                     </SpaceIcon>
-                    <h2>{space.title}</h2>
+                    <h2>{space.spaceTitle}</h2>
                 </SpaceWrapper>
                 <PlantsWrapper>
                     {space.plants.map((plant) => (
