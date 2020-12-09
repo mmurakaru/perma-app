@@ -38,6 +38,7 @@ const IllustrationStyled = styled(Illustration)`
 const PlantsWrapper = styled.div`
     margin-top: 70%;
     overflow: auto;
+    height: 50vh;
 `
 
 const Plant = styled.div`

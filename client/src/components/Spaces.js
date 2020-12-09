@@ -42,9 +42,9 @@ export default function SpaceOverview({
 
 const SpacesContainer = styled.div`
     margin-top: 50px;
-    height: 65vh;
+    height: 78.5vh;
     display: grid;
-    gap: 10px;
+    gap: 15px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-auto-rows: min-content;
     place-items: center;

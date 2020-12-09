@@ -88,9 +88,8 @@ const SpacesContainer = styled.div`
     height: 65vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: min-content;
     place-items: center;
-    gap: 20px;
+    gap: 10px;
     overflow: auto;
 
     .link {
@@ -125,7 +124,7 @@ const LogoStyled = styled(Sunflower)`
 const SpaceWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-self: start;
+    align-self: center;
 
     h2 {
         margin: 3px 0;
