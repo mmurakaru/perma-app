@@ -85,7 +85,7 @@ const ArrowDown = styled(ArrowIcon)`
 
 const SpacesContainer = styled.div`
     margin-top: 20px;
-    height: 65vh;
+    max-height: 73vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
