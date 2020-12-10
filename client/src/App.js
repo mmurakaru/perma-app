@@ -93,7 +93,7 @@ function App() {
                         <PageHeader title={'Spaces'} />
                         <Spaces
                             spaces={spaces}
-                            updateSpaceDetails={addCurrentPlantToSpace}
+                            switchToSpaceDetails={switchToSpaceDetails}
                             switchToSpaceCreator={switchToSpaceCreator}
                         />
                     </PageContainer>
@@ -121,6 +121,12 @@ function App() {
 
     function switchToSpaceCreator() {
         history.push('/SpaceCreator')
+    }
+
+    function switchToSpaceDetails(id) {
+        const targetSpace = spaces.find((space) => space.id === id)
+        setCurrentSpace(targetSpace)
+        history.push('/spaceDetails')
     }
 
     function addCurrentPlantToSpace(id) {
