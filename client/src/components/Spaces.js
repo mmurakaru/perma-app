@@ -47,7 +47,7 @@ const SpacesContainer = styled.div`
     height: 78.5vh;
     display: grid;
     gap: 15px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: min-content;
     place-items: center;
     overflow: auto;

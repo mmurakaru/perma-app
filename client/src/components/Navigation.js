@@ -51,7 +51,7 @@ export default function Navigation() {
     )
 }
 
-const NavigationContainer = styled.section`
+const NavigationContainer = styled.nav`
     background-color: var(--medium-green);
     bottom: 0;
     display: flex;

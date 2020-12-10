@@ -35,26 +35,6 @@ function App() {
 
     const history = useHistory()
 
-    function switchToPreviousPage() {
-        history.goBack()
-    }
-
-    function switchToOverview() {
-        history.push('/Overview')
-    }
-
-    function switchToPlantFields() {
-        history.push('/PlantFields')
-    }
-
-    function switchToSpaceOverview() {
-        history.push('/SpacesOverview')
-    }
-
-    function switchToSpaceCreator() {
-        history.push('/SpaceCreator')
-    }
-
     return (
         <AppStyled>
             <Switch>
@@ -122,6 +102,26 @@ function App() {
             </Switch>
         </AppStyled>
     )
+
+    function switchToPreviousPage() {
+        history.goBack()
+    }
+
+    function switchToOverview() {
+        history.push('/Overview')
+    }
+
+    function switchToPlantFields() {
+        history.push('/PlantFields')
+    }
+
+    function switchToSpaceOverview() {
+        history.push('/SpacesOverview')
+    }
+
+    function switchToSpaceCreator() {
+        history.push('/SpaceCreator')
+    }
 
     function addCurrentPlantToSpace(id) {
         let today = new Date()
