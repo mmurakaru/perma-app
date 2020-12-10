@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import logo from '../assets/perma_logo.svg'
+import { ReactComponent as Color } from '../assets/colorelement_2.svg'
 
 PlantsOverview.propTypes = {
     plants: PropTypes.array,
@@ -8,22 +9,36 @@ PlantsOverview.propTypes = {
 
 export default function PlantsOverview({ plants, handleClick }) {
     return (
-        <ThumbnailWrapper>
-            {plants.length > 0 ? (
-                plants?.map(({ id, common_name, image_url }) => (
-                    <PlantThumbnail onClick={() => handleClick(id)} key={id}>
-                        <img src={image_url} alt="" />
-                        <h2>{common_name}</h2>
-                    </PlantThumbnail>
-                ))
-            ) : (
-                <ErrorMsgStyled>
-                    Whoops! We couldn't find the plant you were looking for.
-                </ErrorMsgStyled>
-            )}
-        </ThumbnailWrapper>
+        <>
+            <ColorElement />
+            <ThumbnailWrapper>
+                {plants.length > 0 ? (
+                    plants?.map(({ id, common_name, image_url }) => (
+                        <PlantThumbnail
+                            onClick={() => handleClick(id)}
+                            key={id}
+                        >
+                            <img src={image_url} alt="" />
+                            <h2>{common_name}</h2>
+                        </PlantThumbnail>
+                    ))
+                ) : (
+                    <ErrorMsgStyled>
+                        Whoops! We couldn't find the plant you were looking for.
+                    </ErrorMsgStyled>
+                )}
+            </ThumbnailWrapper>
+        </>
     )
 }
+
+const ColorElement = styled(Color)`
+    width: 180px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: -1;
+`
 
 const PlantThumbnail = styled.section`
     img {

@@ -52,10 +52,8 @@ export default function Navigation() {
 }
 
 const NavigationContainer = styled.section`
-    background-color: #cfd8c6;
+    background-color: var(--medium-green);
     bottom: 0;
-    /* border-top-left-radius: 25px;
-    border-top-right-radius: 25px; */
     display: flex;
     fill: var(--white);
     justify-content: space-around;

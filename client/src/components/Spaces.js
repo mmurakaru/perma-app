@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { ReactComponent as Plus } from '../assets/plus.svg'
 import { ReactComponent as Sunflower } from '../assets/sunflower.svg'
+import { ReactComponent as Color } from '../assets/colorelement_1.svg'
 
 SpaceOverview.propTypes = {
     spaces: PropTypes.array,
@@ -16,6 +17,7 @@ export default function SpaceOverview({
 }) {
     return (
         <>
+            <ColorElement />
             <SpacesContainer>
                 {spaces.map(({ spaceTitle, id }) => (
                     <SpaceWrapper
@@ -60,6 +62,7 @@ const SpacesContainer = styled.div`
 
 const NewSpaceIcon = styled.div`
     border: 1px solid var(--medium-grey);
+    background: var(--white);
     height: 100px;
     width: 100px;
     border-radius: 5px;
@@ -90,4 +93,12 @@ const SpaceWrapper = styled.div`
         margin: 3px 0;
         opacity: 100%;
     }
+`
+
+const ColorElement = styled(Color)`
+    width: 200px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: -1;
 `
