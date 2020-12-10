@@ -11,6 +11,7 @@ import SpaceDetails from './components/SpaceDetails'
 import SpaceCreator from './components/SpaceCreator'
 import Spaces from './components/Spaces'
 import Navigation from './components/Navigation'
+import Home from './components/Home'
 
 function App() {
     const {
@@ -18,7 +19,7 @@ function App() {
         searchTerm,
         updateSearchTerm,
         showPlantDetails,
-        plant,
+        currentPlant,
         isLoaded,
     } = usePlants()
 
@@ -27,44 +28,24 @@ function App() {
         submitHandler,
         updateTitle,
         spaces,
-        spacePlants,
-        setSpacePlants,
-        space,
-        setSpace,
+        setSpaces,
+        currentSpace,
+        setCurrentSpace,
     } = useSpaces()
 
     const history = useHistory()
-
-    function updateSpaceDetails(spaceIndex) {
-        const targetSpace = spaces
-            .find((_, index) => index === spaceIndex)
-            .toString()
-
-        setSpacePlants([plant, ...spacePlants])
-        setSpace({ id: spaceIndex, title: targetSpace, plants: spacePlants })
-        history.push('/spaceDetails')
-    }
-
-    function switchToOverview() {
-        history.push('/')
-    }
-
-    function switchToPlantFields() {
-        history.push('/PlantFields')
-    }
-
-    function switchToSpaceOverview() {
-        history.push('/SpacesOverview')
-    }
-
-    function switchToSpaceCreator() {
-        history.push('/SpaceCreator')
-    }
 
     return (
         <AppStyled>
             <Switch>
                 <Route exact path="/">
+                    <PageContainer>
+                        <PageHeader title={'Home'} />
+                        <Home space={currentSpace} />
+                    </PageContainer>
+                    <Navigation />
+                </Route>
+                <Route path="/Overview">
                     <PageContainer>
                         <PageHeader title={'Overview'} />
                         <SearchField
@@ -80,7 +61,7 @@ function App() {
                 </Route>
                 <Route path="/PlantFields">
                     <PlantFields
-                        plant={plant}
+                        plant={currentPlant}
                         isLoaded={isLoaded}
                         switchToOverview={switchToOverview}
                         switchToSpaceOverview={switchToSpaceOverview}
@@ -90,7 +71,7 @@ function App() {
                     <SpaceOverview
                         switchToPlantFields={switchToPlantFields}
                         spaces={spaces}
-                        updateSpaceDetails={updateSpaceDetails}
+                        updateSpaceDetails={addCurrentPlantToSpace}
                         switchToSpaceCreator={switchToSpaceCreator}
                     />
                 </Route>
@@ -103,8 +84,8 @@ function App() {
                 </Route>
                 <Route path="/SpaceDetails">
                     <SpaceDetails
-                        space={space}
-                        switchToSpaceOverview={switchToSpaceOverview}
+                        space={currentSpace}
+                        switchToPreviousPage={switchToPreviousPage}
                     />
                 </Route>
                 <Route path="/Spaces">
@@ -112,7 +93,7 @@ function App() {
                         <PageHeader title={'Spaces'} />
                         <Spaces
                             spaces={spaces}
-                            updateSpaceDetails={updateSpaceDetails}
+                            updateSpaceDetails={addCurrentPlantToSpace}
                             switchToSpaceCreator={switchToSpaceCreator}
                         />
                     </PageContainer>
@@ -121,6 +102,48 @@ function App() {
             </Switch>
         </AppStyled>
     )
+
+    function switchToPreviousPage() {
+        history.goBack()
+    }
+
+    function switchToOverview() {
+        history.push('/Overview')
+    }
+
+    function switchToPlantFields() {
+        history.push('/PlantFields')
+    }
+
+    function switchToSpaceOverview() {
+        history.push('/SpacesOverview')
+    }
+
+    function switchToSpaceCreator() {
+        history.push('/SpaceCreator')
+    }
+
+    function addCurrentPlantToSpace(id) {
+        let today = new Date()
+        const dd = String(today.getDate()).padStart(2, '0')
+        const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
+        const yyyy = today.getFullYear()
+        today = dd + '.' + mm + '.' + yyyy
+
+        const updatedSpaces = spaces.map((space) =>
+            space.id === id
+                ? {
+                      ...space,
+                      plants: [currentPlant, ...space.plants],
+                      date: today,
+                  }
+                : space
+        )
+        setSpaces(updatedSpaces)
+        const targetSpace = updatedSpaces.find((space) => space.id === id)
+        setCurrentSpace(targetSpace)
+        history.push('/spaceDetails')
+    }
 }
 
 export default App

@@ -21,6 +21,7 @@ export default function SpaceCreator({
                 </SpaceImageWrapper>
                 <SpaceNameInput>
                     <input
+                        autocomplete="off"
                         onChange={(event) => updateTitle(event.target.value)}
                         id="spacetitle"
                         type="text"

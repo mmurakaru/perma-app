@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { ReactComponent as Plus } from '../assets/plus.svg'
 import { ReactComponent as Sunflower } from '../assets/sunflower.svg'
+import { ReactComponent as Color } from '../assets/colorelement_1.svg'
 
 SpaceOverview.propTypes = {
     spaces: PropTypes.array,
@@ -16,16 +17,17 @@ export default function SpaceOverview({
 }) {
     return (
         <>
+            <ColorElement />
             <SpacesContainer>
-                {spaces.map((title, index) => (
+                {spaces.map(({ spaceTitle, id }) => (
                     <SpaceWrapper
-                        key={index}
-                        onClick={() => updateSpaceDetails(index)}
+                        key={id}
+                        onClick={() => updateSpaceDetails(id)}
                     >
                         <SpaceIcon>
                             <LogoStyled />
                         </SpaceIcon>
-                        <h2>{title}</h2>
+                        <h2>{spaceTitle}</h2>
                     </SpaceWrapper>
                 ))}
 
@@ -42,12 +44,12 @@ export default function SpaceOverview({
 
 const SpacesContainer = styled.div`
     margin-top: 50px;
-    height: 65vh;
+    height: 78.5vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: min-content;
     place-items: center;
-    gap: 20px;
     overflow: auto;
 
     h2 {
@@ -60,6 +62,7 @@ const SpacesContainer = styled.div`
 
 const NewSpaceIcon = styled.div`
     border: 1px solid var(--medium-grey);
+    background: var(--white);
     height: 100px;
     width: 100px;
     border-radius: 5px;
@@ -84,9 +87,18 @@ const LogoStyled = styled(Sunflower)`
 const SpaceWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    justify-self: start;
 
     h2 {
         margin: 3px 0;
         opacity: 100%;
     }
+`
+
+const ColorElement = styled(Color)`
+    width: 200px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: -1;
 `

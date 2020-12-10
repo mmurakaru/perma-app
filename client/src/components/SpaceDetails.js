@@ -6,28 +6,19 @@ import { ReactComponent as Sunflower } from '../assets/sunflower.svg'
 
 SpaceDetails.propTypes = {
     space: PropTypes.object,
-    switchToSpaceOverview: PropTypes.func,
+    switchToPreviousPage: PropTypes.func,
 }
 
-export default function SpaceDetails({ space, switchToSpaceOverview }) {
-    let today = new Date()
-    const dd = String(today.getDate()).padStart(2, '0')
-    const mm = String(today.getMonth() + 1).padStart(2, '0') //January is 0!
-    const yyyy = today.getFullYear()
-    today = dd + '.' + mm + '.' + yyyy
-
+export default function SpaceDetails({ space, switchToPreviousPage }) {
     return (
         <BackgroundStyled>
-            <ArrowDown
-                data-testid="ArrowDown"
-                onClick={switchToSpaceOverview}
-            />
+            <ArrowDown data-testid="ArrowDown" onClick={switchToPreviousPage} />
             <DetailsContainer>
                 <SpaceWrapper>
                     <SpaceIcon>
                         <LogoStyled />
                     </SpaceIcon>
-                    <h2>{space.title}</h2>
+                    <h2>{space.spaceTitle}</h2>
                 </SpaceWrapper>
                 <PlantsWrapper>
                     {space.plants.map((plant) => (
@@ -35,7 +26,7 @@ export default function SpaceDetails({ space, switchToSpaceOverview }) {
                             <PlantImage src={plant.image_url} alt="" />
                             <PlantInfo>
                                 <h2>{plant.common_name}</h2>
-                                <span>{today}</span>
+                                <span>{space.date}</span>
                             </PlantInfo>
                         </Plant>
                     ))}

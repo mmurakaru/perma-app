@@ -1,28 +1,30 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function useSpaces() {
     const history = useHistory()
     const [submitDisabled, setSubmitDisabled] = useState(true)
     const [spaceTitle, setSpaceTitle] = useState('')
     const [spaces, setSpaces] = useState([])
-    const [spacePlants, setSpacePlants] = useState([])
-    const [space, setSpace] = useState({ id: null, name: '', plants: [] })
+    const [currentSpace, setCurrentSpace] = useState()
 
     return {
         submitDisabled,
         submitHandler,
         updateTitle,
         spaces,
-        spacePlants,
-        setSpacePlants,
-        space,
-        setSpace,
+        setSpaces,
+        currentSpace,
+        setCurrentSpace,
     }
 
     function submitHandler(event) {
         event.preventDefault()
-        setSpaces([spaceTitle, ...spaces])
+        setSpaces([
+            { id: uuidv4(), spaceTitle: spaceTitle, plants: [], date: '' },
+            ...spaces,
+        ])
         setSubmitDisabled(true)
         history.goBack()
     }
