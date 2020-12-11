@@ -27,7 +27,7 @@ app.listen(port, () => {
 // The parameters for our POST request
 function getJWT() {
 const params = {
-  origin: 'http://localhost:3000',
+  origin: process.env.ORIGIN,
   token: apiKey
 }
 
