@@ -11,13 +11,13 @@ app.use(cors())
 
 app.use(express.static(path.join(__dirname, 'client/build')))
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-})
-
 app.get('/api/token', async (req, res) => {
   const token = await getJWT()
   res.send(token)
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 })
 
 app.listen(port, () => {
