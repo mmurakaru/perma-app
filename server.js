@@ -1,12 +1,19 @@
 const express = require("express")
 const cors = require("cors")
 const fetch = require('node-fetch')
+const path = require('path')
 
 const app = express();
 const port = process.env.PORT || 3001;
 const apiKey = process.env.API_KEY;
 
 app.use(cors())
+
+app.use(express.static(path.join(__dirname, 'client/build')))
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+})
 
 app.get('/api/token', async (req, res) => {
   const token = await getJWT()
