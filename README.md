@@ -24,7 +24,7 @@ All plants data displayed in the app is requested from the freely accessible bot
 
 ## Heroku deployment
 
-https://perma-app.herokuapp.com/
+https://perma-app.herokuapp.com
 
 ## Install
 
