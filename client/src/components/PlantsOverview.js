@@ -1,7 +1,7 @@
-import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import logo from '../assets/perma_logo.svg'
+import styled from 'styled-components/macro'
 import { ReactComponent as Color } from '../assets/colorelement_2.svg'
+import logo from '../assets/perma_logo.svg'
 
 PlantsOverview.propTypes = {
     plants: PropTypes.array,

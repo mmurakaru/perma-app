@@ -1,8 +1,8 @@
-import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
+import { ReactComponent as Color } from '../assets/colorelement_1.svg'
 import { ReactComponent as Plus } from '../assets/plus.svg'
 import { ReactComponent as Sunflower } from '../assets/sunflower.svg'
-import { ReactComponent as Color } from '../assets/colorelement_1.svg'
 
 SpaceOverview.propTypes = {
     spaces: PropTypes.array,

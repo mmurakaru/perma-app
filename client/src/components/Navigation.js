@@ -1,8 +1,8 @@
-import styled from 'styled-components/macro'
-import { ReactComponent as Spaces } from '../assets/spaces.svg'
-import { ReactComponent as Overview } from '../assets/overview.svg'
-import { ReactComponent as Home } from '../assets/home.svg'
 import { NavLink } from 'react-router-dom'
+import styled from 'styled-components/macro'
+import { ReactComponent as Home } from '../assets/home.svg'
+import { ReactComponent as Overview } from '../assets/overview.svg'
+import { ReactComponent as Spaces } from '../assets/spaces.svg'
 
 export default function Navigation() {
     return (
