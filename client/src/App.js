@@ -1,17 +1,17 @@
+import { Route, Switch, useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import usePlants from './hooks/usePlants'
-import useSpaces from './hooks/useSpaces'
-import { Switch, Route, useHistory } from 'react-router-dom'
+import Home from './components/Home'
+import Navigation from './components/Navigation'
 import PageHeader from './components/PageHeader'
+import PlantFields from './components/PlantFields'
 import PlantsOverview from './components/PlantsOverview'
 import SearchField from './components/SearchField'
-import PlantFields from './components/PlantFields'
-import SpaceOverview from './components/SpacesOverview'
-import SpaceDetails from './components/SpaceDetails'
 import SpaceCreator from './components/SpaceCreator'
+import SpaceDetails from './components/SpaceDetails'
 import Spaces from './components/Spaces'
-import Navigation from './components/Navigation'
-import Home from './components/Home'
+import SpaceOverview from './components/SpacesOverview'
+import usePlants from './hooks/usePlants'
+import useSpaces from './hooks/useSpaces'
 
 function App() {
     const {
@@ -93,7 +93,7 @@ function App() {
                         <PageHeader title={'Spaces'} />
                         <Spaces
                             spaces={spaces}
-                            updateSpaceDetails={addCurrentPlantToSpace}
+                            switchToSpaceDetails={switchToSpaceDetails}
                             switchToSpaceCreator={switchToSpaceCreator}
                         />
                     </PageContainer>
@@ -121,6 +121,12 @@ function App() {
 
     function switchToSpaceCreator() {
         history.push('/SpaceCreator')
+    }
+
+    function switchToSpaceDetails(id) {
+        const targetSpace = spaces.find((space) => space.id === id)
+        setCurrentSpace(targetSpace)
+        history.push('/spaceDetails')
     }
 
     function addCurrentPlantToSpace(id) {

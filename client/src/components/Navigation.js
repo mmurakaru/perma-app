@@ -1,8 +1,8 @@
-import styled from 'styled-components/macro'
-import { ReactComponent as Spaces } from '../assets/spaces.svg'
-import { ReactComponent as Overview } from '../assets/overview.svg'
-import { ReactComponent as Home } from '../assets/home.svg'
 import { NavLink } from 'react-router-dom'
+import styled from 'styled-components/macro'
+import { ReactComponent as Home } from '../assets/home.svg'
+import { ReactComponent as Overview } from '../assets/overview.svg'
+import { ReactComponent as Spaces } from '../assets/spaces.svg'
 
 export default function Navigation() {
     return (
@@ -11,6 +11,7 @@ export default function Navigation() {
                 className="link"
                 exact
                 to="/"
+                style={{ fill: '#F5F5F5' }}
                 activeStyle={{
                     fill: 'var(--dark-green)',
                     color: 'var(--dark-green)',
@@ -23,6 +24,7 @@ export default function Navigation() {
             </NavLink>
             <NavLink
                 className="link"
+                style={{ fill: '#F5F5F5' }}
                 activeStyle={{
                     fill: 'var(--dark-green)',
                     color: 'var(--dark-green)',
@@ -37,6 +39,7 @@ export default function Navigation() {
             <NavLink
                 className="link"
                 to="/Spaces"
+                style={{ fill: '#F5F5F5' }}
                 activeStyle={{
                     fill: 'var(--dark-green)',
                     color: 'var(--dark-green)',

@@ -1,7 +1,7 @@
-import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import logo from '../assets/perma_logo.svg'
+import styled from 'styled-components/macro'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
+import logo from '../assets/perma_logo.svg'
 
 PlantFields.propTypes = {
     plant: PropTypes.object,

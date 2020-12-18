@@ -1,18 +1,18 @@
-import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
+import { ReactComponent as Color } from '../assets/colorelement_1.svg'
 import { ReactComponent as Plus } from '../assets/plus.svg'
 import { ReactComponent as Sunflower } from '../assets/sunflower.svg'
-import { ReactComponent as Color } from '../assets/colorelement_1.svg'
 
 SpaceOverview.propTypes = {
     spaces: PropTypes.array,
-    updateSpaceDetails: PropTypes.func,
+    switchToSpaceDetails: PropTypes.func,
     switchToSpaceCreator: PropTypes.func,
 }
 
 export default function SpaceOverview({
     spaces,
-    updateSpaceDetails,
+    switchToSpaceDetails,
     switchToSpaceCreator,
 }) {
     return (
@@ -22,7 +22,7 @@ export default function SpaceOverview({
                 {spaces.map(({ spaceTitle, id }) => (
                     <SpaceWrapper
                         key={id}
-                        onClick={() => updateSpaceDetails(id)}
+                        onClick={() => switchToSpaceDetails(id)}
                     >
                         <SpaceIcon>
                             <LogoStyled />

@@ -1,5 +1,5 @@
-import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
 import { ReactComponent as Illustration } from '../assets/illustration.svg'
 
