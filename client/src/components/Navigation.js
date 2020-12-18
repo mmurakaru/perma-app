@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import { ReactComponent as Spaces } from '../assets/spaces.svg'
 import { ReactComponent as Overview } from '../assets/overview.svg'
 import { ReactComponent as Home } from '../assets/home.svg'
+import { ReactComponent as Calendar } from '../assets/calendar.svg'
 import { NavLink } from 'react-router-dom'
 
 export default function Navigation() {
@@ -47,6 +48,19 @@ export default function Navigation() {
                     <LinkText>Spaces</LinkText>
                 </LinkWrapper>
             </NavLink>
+            <NavLink
+                className="link"
+                to="/Calendar"
+                activeStyle={{
+                    fill: 'var(--dark-green)',
+                    color: 'var(--dark-green)',
+                }}
+            >
+                <LinkWrapper>
+                    <CalendarIcon />
+                    <LinkText>Calendar</LinkText>
+                </LinkWrapper>
+            </NavLink>
         </NavigationContainer>
     )
 }
@@ -68,6 +82,10 @@ const NavigationContainer = styled.nav`
         color: var(--white);
     }
 `
+const CalendarIcon = styled(Calendar)`
+    width: 25px;
+`
+
 const SpacesIcon = styled(Spaces)`
     width: 25px;
 `

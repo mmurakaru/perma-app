@@ -99,6 +99,12 @@ function App() {
                     </PageContainer>
                     <Navigation />
                 </Route>
+                <Route path="/Calendar">
+                    <PageContainer>
+                        <PageHeader title={'Calendar'} />
+                    </PageContainer>
+                    <Navigation />
+                </Route>
             </Switch>
         </AppStyled>
     )
