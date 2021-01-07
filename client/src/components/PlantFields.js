@@ -4,7 +4,7 @@ import logo from '../assets/perma_logo.svg'
 import { ReactComponent as ArrowIcon } from '../assets/arrow_down.svg'
 
 PlantFields.propTypes = {
-    plant: PropTypes.object,
+    plant: PropTypes.array,
     isLoaded: PropTypes.bool,
     switchToOverview: PropTypes.func.isRequired,
     switchToSpaceOverview: PropTypes.func.isRequired,

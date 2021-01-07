@@ -12,6 +12,7 @@ import SpaceCreator from './components/SpaceCreator'
 import Spaces from './components/Spaces'
 import Navigation from './components/Navigation'
 import Home from './components/Home'
+import HarvestCalendar from './components/HarvestCalendar'
 
 function App() {
     const {
@@ -102,6 +103,7 @@ function App() {
                 <Route path="/Calendar">
                     <PageContainer>
                         <PageHeader title={'Calendar'} />
+                        <HarvestCalendar />
                     </PageContainer>
                     <Navigation />
                 </Route>
@@ -159,4 +161,5 @@ const AppStyled = styled.div`
 `
 const PageContainer = styled.div`
     padding: 20px;
+    z-index: -1;
 `
