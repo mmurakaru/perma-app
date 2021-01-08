@@ -6,13 +6,13 @@ import { ReactComponent as Color } from '../assets/colorelement_1.svg'
 
 SpaceOverview.propTypes = {
     spaces: PropTypes.array,
-    updateSpaceDetails: PropTypes.func,
+    openSpaceDetails: PropTypes.func,
     switchToSpaceCreator: PropTypes.func,
 }
 
 export default function SpaceOverview({
     spaces,
-    updateSpaceDetails,
+    openSpaceDetails,
     switchToSpaceCreator,
 }) {
     return (
@@ -20,10 +20,7 @@ export default function SpaceOverview({
             <ColorElement />
             <SpacesContainer>
                 {spaces.map(({ spaceTitle, id }) => (
-                    <SpaceWrapper
-                        key={id}
-                        onClick={() => updateSpaceDetails(id)}
-                    >
+                    <SpaceWrapper key={id} onClick={() => openSpaceDetails(id)}>
                         <SpaceIcon>
                             <LogoStyled />
                         </SpaceIcon>
